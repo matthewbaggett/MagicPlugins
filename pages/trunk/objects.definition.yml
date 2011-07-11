@@ -1,0 +1,29 @@
+Page:
+  id:
+    key: true
+    type: integer
+    length: 10
+  parent_id:
+    foreign: Page.id
+  path:
+    type: text
+    length: 255
+
+
+PageVersion:
+  id:
+    key: true
+    type: integer
+    length: 10
+  page:
+    foreign: Page.id
+  title:
+    type: text
+    length: 512
+  content:
+    type: text
+    length: -1
+  user_id:
+    foreign: User.id
+  timestamp:
+    type: timestamp

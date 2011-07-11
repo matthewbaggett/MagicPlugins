@@ -1,0 +1,46 @@
+Image:
+  id:
+    key: true
+    type: integer
+    length: 10
+  user:
+    foreign: User.id
+  uploaded:
+    type: timestamp
+  source:
+    type: text
+    length: 16
+  source_id:
+    type: int
+    length: 10
+  source_url:
+    type: text
+    length: 320
+  file_size:
+    type: int
+    length: 10
+  file_path:
+    type: text
+    length: 320
+  populated:
+    type: int
+    length: 1
+
+Tag:
+  id:
+    key: true
+    type: integer
+    length: 10
+  label:
+    type: text
+    length: 64
+
+ImageTagLink:
+  id:
+    key: true
+    type: integer
+    length: 10
+  image:
+    foreign: Image.id
+  tag:
+    foreign: Tag.id
