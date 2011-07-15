@@ -17,8 +17,11 @@
  
 // $Id:$
 
+if(!class_exists("ImageCDNObject",true)){
+   class ImageCDNObject extends ImageBaseObject{}
+}
 
-class ImageCoreObject extends ImageBaseObject implements ImageInterface {
+class ImageCoreObject extends ImageCDNObject implements ImageInterface {
 
     public function set_image_data($file_name, $data){
         $int_path = "upload/" . $file_name;

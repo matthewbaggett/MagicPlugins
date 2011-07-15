@@ -23,10 +23,15 @@ class CDNFileObject{
    }
 
    public function save(){
+      $escaped_data = CDN_DB::escape($this->data);
       if($this->id > 0){
-         $sql = "UPDATE cdn_files SET `md5` = '{$this->md5}', `data` = '{$this->data}' WHERE `id` = {$this->id}";
+         $sql = "UPDATE cdn_files SET `md5` = '{$this->md5}', `data` = '{$escaped_data}' WHERE `id` = {$this->id}";
+         CDN_DB::Query($sql);
       }else{
-         $sql = "INSERT INTO cdn_files (`md5`, `data`) VALUES ('{$this->md5}', '{$this->data}')";
+         $sql = "INSERT INTO cdn_files (`md5`, `data`) VALUES ('{$this->md5}', '{$escaped_data}')";
+         CDN_DB::Query($sql);
+         $this->set_id(CDN_DB::Factory()->get_insert_id());
       }
+      return $this;
    }
 }
