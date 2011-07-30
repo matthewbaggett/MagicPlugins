@@ -27,8 +27,8 @@ class CMSController extends MagicBaseController{
 	public function CheckLogin(){
 		//Do we have a user?
 		if(!isset($_SESSION['user'])){
-			echo "session user missing route"; exit;
-			//MagicUtils::redirect("CMS","login");
+			//echo "session user missing route"; exit;
+			MagicUtils::redirect("CMS","login");
 			
 		//If we do, check its an admin
 		}elseif(!$this->IsUserAdmin($_SESSION['user'])){
@@ -60,7 +60,7 @@ class CMSController extends MagicBaseController{
 	 * Actions!
 	 */
 	public function DefaultAction(){
-		
+		$this->application->page->user = $_SESSION['user'];
 	}
 	
 	public function LoginAction(){
@@ -86,12 +86,17 @@ class CMSController extends MagicBaseController{
 		}
 		$_SESSION['user'] = $oUser;
 		
-		//Get the most recent login
+		// Get the most recent login
 		$last_access = UserAccessSearcher::Factory()->search_by_user_id($_SESSION['user']->get_id())->sort('id','desc')->execute_one();
-		//Log the new login & access.
-		UserAccess::Factory()->set_date_of_last_update(time())->set_date_of_login(time())->set_user_id($_SESSION['user']->get_id())->save();
+		if($last_access){
+			$time_of_last_update = $last_access->get_date_of_last_update();
+		}else{
+			$time_of_last_update = 'never!';
+		}
 		
-		$_SESSION['notes'][] = "Welcome, {$oUser->get_firstname()} {$oUser->get_surname()}! You last logged in at {$last_access->get_date_of_login()} and last were seen at {$last_access->get_date_of_last_update()}";
+		// Log the new login & access.
+		UserAccess::Factory()->set_date_of_last_update(time())->set_date_of_login(time())->set_user_id($_SESSION['user']->get_id())->save();
+		$_SESSION['notes'][] = "Welcome, {$oUser->get_firstname()} {$oUser->get_surname()}! You last logged in at {$last_access->get_date_of_login()} and last were seen at {$time_of_last_update}";
 		MagicUtils::redirect("CMS");
 	}
 	public function ForgotPasswordAction(){

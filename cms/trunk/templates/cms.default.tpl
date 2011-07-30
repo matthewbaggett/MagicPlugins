@@ -65,7 +65,7 @@
                                 <button class="button button-gray close">Cancel</button>
                             </div>
                         </li>
-                        <li class="fr"><a href="#" class="arrow-down">administrator</a>
+                        <li class="fr"><a href="#" class="arrow-down">{$page->user->get_firstname()}</a>
                             <ul>
                                 <li><a href="#">Account</a></li>
                                 <li><a href="#">Users</a></li>
@@ -79,6 +79,7 @@
         </header>
         
         <section>
+        	<code>{print_r($page)}</code>
             <div class="container_8 clearfix">                
 
                 <!-- Main Section -->
