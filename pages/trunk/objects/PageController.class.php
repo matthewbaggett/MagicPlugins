@@ -8,8 +8,10 @@ class PageController extends PageBaseController {
 	public function viewAction(){
         $this->application->page_setup();
        
-        $page = PageSearcher::Factory()->search_by_path($_REQUEST['parameter'])->execute_one();
-        $this->page = Page::Cast($page);
+        $this->page = PageSearcher::Factory()->search_by_path($_REQUEST['parameter'])->execute_one();
+        if(!$this->page){
+        	throw new exception("No page exists for this path :(");
+        }
         $versions = $this->page->get_child_page_versions("id");
         $this->page_version = array_pop($versions);
         $navigation = PageSearcher::Factory()->search_by_parent_id(0)->execute();
