@@ -51,7 +51,6 @@ class ImageCoreObject extends ImageCDNObject implements ImageInterface {
     	if(!file_exists($cache_file)){
     		Thumbnailer::scale($original_file, $cache_file, $x, $y);
     	}
-    	//header('Content-Type: image/jpeg');
     	return file_get_contents($cache_file);
     }
 }
