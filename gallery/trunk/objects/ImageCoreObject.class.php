@@ -45,11 +45,13 @@ class ImageCoreObject extends ImageCDNObject implements ImageInterface {
     		throw new Exception("This file is missing!");
     	}
     	$cache_file = ROOT_APP . "/temp/thumbs/$x/$y/{$this->get_id36()}.jpg";
+    	if(!file_exists(dirname($cache_file))){
+    		mkdir(dirname($cache_file),0777,true);
+    	}
     	if(!file_exists($cache_file)){
     		Thumbnailer::scale($original_file, $cache_file, $x, $y);
     	}
     	//header('Content-Type: image/jpeg');
-    	echo file_get_contents($cache_file);
-    	exit;
+    	return file_get_contents($cache_file);
     }
 }
