@@ -30,7 +30,8 @@ class ImageCoreController extends ImageBaseController {
 		//print_r($_GET);
 		$oImage = ImageSearcher::Factory()->search_by_id($image_id)->execute_one();
 		$image_data = $oImage->scale_to_fit($dimentions[0],$dimentions[1]);
-		//print_r($oImage);
-    	exit;
+		header('Content-Type: image/jpeg');
+		echo $image_data;
+		exit;
     }
 }
