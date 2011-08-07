@@ -1,9 +1,15 @@
 <?php
 class Thumbnailer{
 	
-	static function scale($source, $destination, $new_width, $new_height,$return_destination_image_resource = false){
+	static function scale($source, $destination, $new_width, $new_height, $return_destination_image_resource = false){
 		if(!file_exists($source)){
 			throw new exception("Source file {$source} missing!");
+		}
+		if($new_width == 0){
+			throw new exception("Width must be >0");
+		}
+		if($new_height == 0){
+			throw new exception("Height must be >0");
 		}
 		$source_image = thumbnailer::getSrcImg($source);
 		
@@ -23,8 +29,7 @@ class Thumbnailer{
 			//die("Height. Ratio: $ratio");
 		}
 		if ($old_width == $old_height) {
-			$thumb_width = $new_width;
-			$thumb_height = $new_height;
+			$thumb_height = $thumb_width = $new_width;
 		}
 		echo "Old width: {$old_width} and {$old_height}\n";
 		die("Width: {$thumb_width} by Height: {$thumb_height}");
