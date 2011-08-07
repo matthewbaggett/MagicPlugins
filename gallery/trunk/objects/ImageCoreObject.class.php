@@ -46,7 +46,7 @@ class ImageCoreObject extends ImageCDNObject implements ImageInterface {
     	}
     	$cache_file = ROOT_APP . "/temp/thumbs/$x/$y/{$this->get_id36()}.jpg";
     	if(!file_exists($cache_file)){
-    		Thumbnailer::crop($original_file, $cache_file, $x, $y);
+    		Thumbnailer::scale($original_file, $cache_file, $x, $y);
     	}
     	//header('Content-Type: image/jpeg');
     	echo file_get_contents($cache_file);
