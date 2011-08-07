@@ -1,8 +1,5 @@
 <?php
 class Thumbnailer{
-	static function createThumb($source, $destination, $new_width, $new_height){
-		return thumbnailer::scale($source,$destination,$new_width, $new_height);
-	}
 	
 	static function scale($source, $destination, $new_width, $new_height,$return_destination_image_resource = false){
 		$source_image = thumbnailer::getSrcImg($source);

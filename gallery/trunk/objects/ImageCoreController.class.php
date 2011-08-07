@@ -25,11 +25,11 @@
 class ImageCoreController extends ImageBaseController {
 	public function ThumbAction(){
     	$bits = explode("-",str_replace(".jpg", "", $_GET['parameter']),2);
-    	$dimentions = $bits[0];
+    	$dimentions = explode("x",$bits[0],2);
     	$image_id = base_convert($bits[1], 36, 10);
 		//print_r($_GET);
 		$oImage = ImageSearcher::Factory()->search_by_id($image_id)->execute_one();
-		$image_data = $oImage->scale_to_fit(140,140);
+		$image_data = $oImage->scale_to_fit($dimentions[0],$dimentions[1]);
 		//print_r($oImage);
     	exit;
     }
