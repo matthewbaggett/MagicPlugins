@@ -4,16 +4,16 @@
             <div class="clearfix">
                 <div class="shortcuts">
                     <ul class="clearfix">
-                        <li><a href="#" title="Monitor Activities"><img src="images/woofunction-icons/activity_monitor.png" /><span>Activity</span></a></li>
-                        <li><a href="#" title="Add/Edit Contacts"><img src="images/woofunction-icons/address_book_32.png" /><span>Contacts</span><em>300</em></a></li>
-                        <li><a href="#" title="View Recent Comments"><img src="images/woofunction-icons/comment_32.png" /><span>Comments</span></a><em>20</em></li>
-                        <li><a href="#" title="View Recent Orders"><img src="images/woofunction-icons/basket_32.png" /><span>Orders</span><em>20</em></a></li>
-                        <li><a href="#" title="Read Mail"><img src="images/woofunction-icons/email_32.png" /><span>Mail</span><em>4</em></a></li>
-                        <li><a href="#" title="Send Newsletters"><img src="images/woofunction-icons/newspaper_32.png" /><span>Newsletters</span></a></li>
-                        <li><a href="#" title="View Alerts"><img src="images/woofunction-icons/error_button.png" /><span>Alerts</span><em>20</em></a></li>
-                        <li><a href="#" title="View Reports"><img src="images/woofunction-icons/chart_32.png" /><span>Reports</span></a></li>
-                        <li><a href="#" title="Advanced Search"><img src="images/woofunction-icons/search_button_32.png" /><span>Search</span></a></li>
-                        <li><a href="#" title="Add/Edit Users"><img src="images/woofunction-icons/user_32.png" /><span>Users</span><em>5</em></a></li>
+                        <li><a href="#" title="Monitor Activities"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/activity_monitor.png" /><span>Activity</span></a></li>
+                        <li><a href="#" title="Add/Edit Contacts"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/address_book_32.png" /><span>Contacts</span><em>300</em></a></li>
+                        <li><a href="#" title="View Recent Comments"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/comment_32.png" /><span>Comments</span></a><em>20</em></li>
+                        <li><a href="#" title="View Recent Orders"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/basket_32.png" /><span>Orders</span><em>20</em></a></li>
+                        <li><a href="#" title="Read Mail"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/email_32.png" /><span>Mail</span><em>4</em></a></li>
+                        <li><a href="#" title="Send Newsletters"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/newspaper_32.png" /><span>Newsletters</span></a></li>
+                        <li><a href="#" title="View Alerts"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/error_button.png" /><span>Alerts</span><em>20</em></a></li>
+                        <li><a href="#" title="View Reports"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/chart_32.png" /><span>Reports</span></a></li>
+                        <li><a href="#" title="Advanced Search"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/search_button_32.png" /><span>Search</span></a></li>
+                        <li><a href="#" title="Add/Edit Users"><img src="{$page->site->sys_root}/plugins/cms/resources/images/woofunction-icons/user_32.png" /><span>Users</span><em>5</em></a></li>
                     </ul>
                 </div>
 
@@ -65,12 +65,12 @@
                                 <button class="button button-gray close">Cancel</button>
                             </div>
                         </li>
-                        <li class="fr"><a href="#" class="arrow-down">{$page->user->get_firstname()}</a>
+                        <li class="fr"><a href="#" class="arrow-down">{$page->user->get_firstname()} {$page->user->get_surname()}</a>
                             <ul>
-                                <li><a href="#">Account</a></li>
+                                <li><a href="{$page->site->sys_root}/CMS/Account">Manage account</a></li>
                                 <li><a href="#">Users</a></li>
                                 <li><a href="#">Groups</a></li>
-                                <li><a href="#">Sign out</a></li>
+                                <li><a href="{$page->site->sys_root}/CMS/Logout">Log out</a></li>
                             </ul>
                         </li>
                     </ul>
