@@ -2,6 +2,9 @@
 class Thumbnailer{
 	
 	static function scale($source, $destination, $new_width, $new_height,$return_destination_image_resource = false){
+		if(!file_exists($source)){
+			throw new exception("Source file {$source} missing!");
+		}
 		$source_image = thumbnailer::getSrcImg($source);
 		
 						
@@ -24,6 +27,7 @@ class Thumbnailer{
 			$thumb_height = $new_height;
 		}
 		
+		die("Width: {$thumb_width} by Height: {$thumb_height}");
 		$destination_image=ImageCreateTrueColor($thumb_width,$thumb_height);
 
 		imagecopyresampled($destination_image,$source_image,0,0,0,0,$thumb_width,$thumb_height,$old_width,$old_height); 
