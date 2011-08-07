@@ -31,8 +31,8 @@ class Thumbnailer{
 		if ($old_width == $old_height) {
 			$thumb_height = $thumb_width = $new_width;
 		}
-		echo "Old width: {$old_width} and {$old_height}\n";
-		die("Width: {$thumb_width} by Height: {$thumb_height}");
+		//echo "Old width: {$old_width} and {$old_height}\n";
+		//die("Width: {$thumb_width} by Height: {$thumb_height}");
 		$destination_image=ImageCreateTrueColor($thumb_width,$thumb_height);
 
 		imagecopyresampled($destination_image,$source_image,0,0,0,0,$thumb_width,$thumb_height,$old_width,$old_height); 
