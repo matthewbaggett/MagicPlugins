@@ -48,7 +48,8 @@ class ImageCoreObject extends ImageCDNObject implements ImageInterface {
     	if(!file_exists($cache_file)){
     		Thumbnailer::crop($original_file, $cache_file, $x, $y);
     	}
-    	header('Content-Type: image/jpeg');
+    	//header('Content-Type: image/jpeg');
     	echo file_get_contents($cache_file);
+    	exit;
     }
 }
