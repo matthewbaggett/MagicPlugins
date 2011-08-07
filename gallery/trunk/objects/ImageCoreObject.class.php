@@ -49,7 +49,7 @@ class ImageCoreObject extends ImageCDNObject implements ImageInterface {
     		mkdir(dirname($cache_file),0777,true);
     	}
     	if(!file_exists($cache_file)){
-    		Thumbnailer::scale($original_file, $cache_file, $x, $y);
+    		Thumbnailer::crop($original_file, $cache_file, $x, $y);
     	}
     	return file_get_contents($cache_file);
     }

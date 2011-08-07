@@ -3,15 +3,15 @@ class Thumbnailer{
 	
 	static function scale($source, $destination, $new_width, $new_height, $return_destination_image_resource = false){
 		if(!file_exists($source)){
-			throw new exception("Source file {$source} missing!");
+#			throw new exception("Source file {$source} missing!");
 		}
 		if($new_width == 0){
-			throw new exception("Width must be >0");
+#			throw new exception("Width must be >0");
 		}
 		if($new_height == 0){
-			throw new exception("Height must be >0");
+#			throw new exception("Height must be >0");
 		}
-		$source_image = thumbnailer::getSrcImg($source);
+		$source_image = Thumbnailer::getSrcImg($source);
 		
 						
 		$old_width=imageSX($source_image);
@@ -48,7 +48,12 @@ class Thumbnailer{
 	}
 	
 	static function crop($source, $destination, $new_width, $new_height){
-		$source_image = thumbnailer::scale($source,$destination,$new_width,null,true);
+		if(!$new_width <=$new_height){
+			$smallest_side = $new_width;
+		}else{
+			$smallest_side = $new_height;
+		}
+		$source_image = Thumbnailer::scale($source, $destination, $smallest_side,$smallest_side,true);
 		$destination_image = ImageCreateTrueColor($new_width, $new_height);
 		
 		$crop_start_x = (imageSX($source_image)-$new_width) /2;
@@ -60,7 +65,7 @@ class Thumbnailer{
 	}
 	
 	function createResize($source,$destination,$width,$height){
-		$source_image = thumbnailer::getSrcImg($source);
+		$source_image = Thumbnailer::getSrcImg($source);
 		$old_width = imageSX($source_image);
 		$old_height = imageSY($source_image);
 		$destination_image=ImageCreateTrueColor($width,$height);
