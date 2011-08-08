@@ -34,6 +34,17 @@ Tag:
   label:
     type: text
     length: 64
+  type:
+    foreign: TagType.id
+
+TagType:
+  id:
+    key: true
+    type: integer
+    length: 10
+  name:
+    type: text
+    length: 64 
 
 ImageTagLink:
   id:
