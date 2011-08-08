@@ -5,7 +5,7 @@ class PageController extends PageBaseController {
 	private $page;
 	private $page_version;
 	
-	public function viewAction(){
+	public function ViewAction(){
         $this->application->page_setup();
        
         $this->page = PageSearcher::Factory()->search_by_path($_REQUEST['parameter'])->execute_one();
