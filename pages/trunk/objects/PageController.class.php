@@ -7,7 +7,8 @@ class PageController extends PageBaseController {
 	
 	public function ViewAction(){
         $this->application->page_setup();
-       
+       print_r($_REQUEST);
+       die("oh poo");
         $this->page = PageSearcher::Factory()->search_by_path($_REQUEST['parameter'])->execute_one();
         if(!$this->page){
         	throw new exception("No page exists for this path :(");
