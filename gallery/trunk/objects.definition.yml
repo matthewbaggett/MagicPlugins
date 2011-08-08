@@ -44,3 +44,15 @@ ImageTagLink:
     foreign: Image.id
   tag:
     foreign: Tag.id
+
+Favourite:
+  id:
+    key: true
+    type: integer
+    length: 10
+  user:
+    foreign: User.id
+  image:
+    foreign: Image.id
+
+
