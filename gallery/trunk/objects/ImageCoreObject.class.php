@@ -34,6 +34,7 @@ class ImageCoreObject extends ImageCDNObject implements ImageInterface {
         $this->set_file_path($int_path);
         $this->set_file_size(filesize($complete_file_path));
         $this->save();
+        return $complete_file_path;
     }
     public function get_thumb($x,$y){
     	return $this->get_file_path();
