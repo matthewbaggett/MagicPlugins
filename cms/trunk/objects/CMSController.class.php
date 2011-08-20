@@ -147,4 +147,66 @@ class CMSController extends MagicBaseController{
 		MagicUtils::redirect("CMS","Login");
 	}
 	
+	public function ObjectsAction(){
+		
+		$this->application->page->objects = array();
+		foreach(Application::$objects as $object){
+			
+			$instances = MagicQuery::Factory("SELECT",Inflect::pluralize($object))
+				->addColumn("COUNT(id) as num")
+				->execute_one();
+				
+			$changes = MagicQuery::Factory("SELECT","ActionLog_" . Inflect::pluralize($object))
+				->addColumn("COUNT(id) as num")
+				->execute_one();
+
+			if($changes->num > 0 && $instances->num > 0){
+				$changes_avg = floor($changes->num / $instances->num);	
+			}else{
+				$changes_avg = 0;
+			}
+			
+			$this->application->page->objects[] = array(
+					'name' => $object, 
+					'instances' => $instances->num, 
+					'changes' => $changes->num,
+					'changes_avg' => $changes_avg,
+				);
+		}	}
+	
+	public function ViewSchemaAction(){
+		$this->application->page->object_name = $_REQUEST['parameter'];
+		$this->application->page->object_schema = Application::$schema[$this->application->page->object_name];
+		foreach($this->application->page->object_schema as $column => $value){
+			$this->application->page->object_columns[$column] = array();
+			if($value['type'] == 'timestamp'){
+				$minimum = MagicQuery::Factory("SELECT",Inflect::pluralize($this->application->page->object_name))
+					->addColumn("MIN({$column}) as num")
+					->execute_one();
+				$maximum = MagicQuery::Factory("SELECT",Inflect::pluralize($this->application->page->object_name))
+					->addColumn("MAX({$column}) as num")
+					->execute_one();
+				
+				$this->application->page->object_columns[$column]['range'] = date("Y/m/d",$minimum->num)." - ".date("Y/m/d",$maximum->num)." (".MagicUtils::timeDifference($minimum->num, $maximum->num).")"; 
+			}			
+		}
+		
+	}
+
+	public function ViewDataAction(){
+		$per_page = 100;
+		if(isset($_GET['page'])){
+			$page = $_GET['page'];
+		}else{
+			$page = 1;
+		}
+		$offset = $per_page * $page;
+		$this->application->page->object_name = $_REQUEST['parameter'];
+		$this->application->page->object_schema = Application::$schema[$this->application->page->object_name];
+		$this->application->page->data = MagicQuery::Factory("SELECT",Inflect::pluralize($this->application->page->object_name))
+				->addColumn("*")
+				->setLimit($offset,$per_page)
+				->execute();
+		
+	}
 }
