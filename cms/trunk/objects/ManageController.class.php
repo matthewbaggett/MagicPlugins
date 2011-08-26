@@ -33,12 +33,12 @@ class ManageController extends MagicBaseController{
 	public function CheckLogin(){
 		//Do we have a user?
 		if(!isset($_SESSION['user'])){
-			MagicUtils::redirect("CMS","Login");
+			MagicUtils::redirect("Manage","Login");
 		//If we do, check its an admin
 		}elseif(!$this->IsUserAdmin($_SESSION['user'])){
 			echo "Not an admin route";
 			$_SERVER['notes'][] = "User isn't an admin!"; exit;
-			//MagicUtils::redirect("CMS","Login");
+			//MagicUtils::redirect("Manage","Login");
 		}else{
 			//If everything else succeeds, we can log it!
 			
@@ -78,7 +78,7 @@ class ManageController extends MagicBaseController{
 	public function LogoutAction(){
 		unset($_SESSION['user']);
 		unset($_SESSION['notes']);
-		MagicUtils::redirect("CMS","Login");
+		MagicUtils::redirect("Manage","Login");
 	}
 	public function LoginAction(){
 		
@@ -99,7 +99,7 @@ class ManageController extends MagicBaseController{
 			$oUser = $oUser_by_username;
 		}else{
 			$_SESSION['notes'][] = "No user exists with the username/email {$_POST['username_or_email']}, or the password supplied was incorrect.";
-			MagicUtils::redirect("CMS","Login");
+			MagicUtils::redirect("Manage","Login");
 		}
 		$_SESSION['user'] = $oUser;
 		
@@ -115,7 +115,7 @@ class ManageController extends MagicBaseController{
 		// Log the new login & access.
 		UserAccess::Factory()->set_date_of_last_update(time())->set_date_of_login(time())->set_user_id($_SESSION['user']->get_id())->save();
 		$_SESSION['notes'][] = "Welcome, {$oUser->get_firstname()} {$oUser->get_surname()}! You last logged in at {$time_of_last_update} and last were seen at {$time_of_last_update}";
-		MagicUtils::redirect("CMS");
+		MagicUtils::redirect("Manage");
 	}
 	public function ForgotPasswordAction(){
 		if(count($_POST) > 0){
@@ -131,7 +131,7 @@ class ManageController extends MagicBaseController{
 			$oUser = $oUser_by_username;
 		}else{
 			$_SESSION['notes'][] = "No user exists with the username/email {$_POST['username_or_email']}.";
-			MagicUtils::redirect("CMS","Forgot-Password");
+			MagicUtils::redirect("Manage","Forgot-Password");
 		}
 		$new_password = MagicUtils::generate_password();
 		$oUser->set_password(hash("SHA1",$new_password));
@@ -144,7 +144,7 @@ class ManageController extends MagicBaseController{
 		$mail->save();
 		$mail->send();
 		$_SESSION['notes'][] = "A password reset message was sent to {$oUser->get_email()}";
-		MagicUtils::redirect("CMS","Login");
+		MagicUtils::redirect("Manage","Login");
 	}
 	
 	public function ObjectsAction(){
