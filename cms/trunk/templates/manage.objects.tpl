@@ -1,6 +1,6 @@
 {include file="elements.top.tpl"}
   <div id="wrapper">
-     {include file="cms.navigation.tpl"}  
+     {include file="manage.navigation.tpl"}  
         <section>
             <div class="container_8 clearfix">                
 
@@ -18,7 +18,7 @@
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a href="/CMS/">Back to Dashboard</a>
+                        			<a href="/Manage/">Back to Dashboard</a>
                         			<table class="datatable">
                         				<tr>
                         					<th>Object</th>
@@ -34,8 +34,8 @@
                         						<td>{$object['instances']} {$object['instances_abv']}</td>
                         						<td>{$object['changes']}</td>
                         						<td>{$object['changes_avg']}</td>
-                        						<td><a href="/CMS/ViewData/{$object['name']}">Data</a></td>
-                        						<td><a href="/CMS/ViewSchema/{$object['name']}">Schema</a></td>
+                        						<td><a href="/Manage/ViewData/{$object['name']}">Data</a></td>
+                        						<td><a href="/Manage/ViewSchema/{$object['name']}">Schema</a></td>
                         					</tr>
                         				{/foreach}
                         				</table>

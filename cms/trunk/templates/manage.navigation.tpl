@@ -21,8 +21,8 @@
                 <nav>
                 	
                     <ul class="clearfix">
-                        <li {if $page->server['REQUEST_URI'] eq '/CMS/'} class="active" {/if}><a href="/CMS/">Dashboard</a></li>
-                        <li {if $page->server['REQUEST_URI'] eq '/CMS/Objects/list'} class="active" {/if}><a href="/CMS/Objects/list">Objects</a></li>
+                        <li {if $page->server['REQUEST_URI'] eq '/Manage/'} class="active" {/if}><a href="/Manage/">Dashboard</a></li>
+                        <li {if $page->server['REQUEST_URI'] eq '/Manage/Objects/list'} class="active" {/if}><a href="/Manage/Objects/list">Objects</a></li>
                         <li><a href="#" class="arrow-down">Dropdown</a>
                             <ul>
                                 <li><a href="#">Submenu 1</a></li>
@@ -65,10 +65,10 @@
                         </li>
                         <li class="fr"><a href="#" class="arrow-down">{$page->user->get_firstname()} {$page->user->get_surname()}</a>
                             <ul>
-                                <li><a href="{$page->site->sys_root}/CMS/Account">Manage account</a></li>
+                                <li><a href="{$page->site->sys_root}/Manage/Account">Manage account</a></li>
                                 <li><a href="#">Users</a></li>
                                 <li><a href="#">Groups</a></li>
-                                <li><a href="{$page->site->sys_root}/CMS/Logout">Log out</a></li>
+                                <li><a href="{$page->site->sys_root}/Manage/Logout">Log out</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -1,6 +1,6 @@
 {include file="elements.top.tpl"}
   <div id="wrapper">
-        {include file="cms.navigation.tpl"}
+        {include file="manage.navigation.tpl"}
         <section>
         	
             <div class="container_8 clearfix">                

@@ -32,13 +32,13 @@ $(document).ready(function(){
 	<div class="login-box main-content">
 		<header>
 			<ul class="action-buttons clearfix fr">
-				<li><a href="{$page->site->sys_root}/CMS/Forgot-Password" class="button button-gray"><span class="help"></span>Forgot Password</a></li>
+				<li><a href="{$page->site->sys_root}/Manage/Forgot-Password" class="button button-gray"><span class="help"></span>Forgot Password</a></li>
 			</ul>
 			<h2>Turbo Admin Login</h2>
 		</header>
 		<section>
 			{include file="elements.notes.tpl"}
-			<form id="form" action="{$page->site->sys_root}/CMS/Login" method="post" class="clearfix">
+			<form id="form" action="{$page->site->sys_root}/Manage/Login" method="post" class="clearfix">
 				<p>
 					<input type="text" id="username_or_email"  class="large" value="" name="username_or_email" required="required" placeholder="Username / Email" />
 					<input type="password" id="password" class="large" value="" name="password" required="required" placeholder="Password" />

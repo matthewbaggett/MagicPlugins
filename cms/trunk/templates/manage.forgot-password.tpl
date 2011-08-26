@@ -27,13 +27,13 @@ $(document).ready(function(){
 	<div class="login-box main-content">
 		<header>
 			<ul class="action-buttons clearfix fr">
-				<li><a href="{$page->site->sys_root}/CMS/login" class="button button-gray">Back to Login</a></li>
+				<li><a href="{$page->site->sys_root}/Manage/login" class="button button-gray">Back to Login</a></li>
 			</ul>
 			<h2>Forgotten your password?</h2>
 		</header>
 		<section>
 			{include file="elements.notes.tpl"}
-			<form id="form" action="{$page->site->sys_root}/CMS/forgot-password" method="post" class="clearfix">
+			<form id="form" action="{$page->site->sys_root}/Manage/forgot-password" method="post" class="clearfix">
 				<p>
 					<input type="text" id="username_or_email"  class="large" value="" name="username_or_email" required="required" placeholder="Username / Email" />
 					<button class="large button button-gray fr" type="submit">Recover</button>

@@ -1,6 +1,6 @@
 {include file="elements.top.tpl"}
   <div id="wrapper">
-     {include file="cms.navigation.tpl"}  
+     {include file="manage.navigation.tpl"}  
         <section>
             <div class="container_8 clearfix">                
 
@@ -18,8 +18,8 @@
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a href="/CMS/Objects/list">Back to Objects</a>
-									<a href="/CMS/ViewSchema/{$page->object_name}">View Schema for {$page->object_name}</a>
+                        			<a href="/Manage/Objects/list">Back to Objects</a>
+									<a href="/Manage/ViewSchema/{$page->object_name}">View Schema for {$page->object_name}</a>
                         			<table class="datatable">
                         				<tr>
                         					{foreach from=end($page->data) key=column_id item=column_value}
@@ -46,8 +46,8 @@
 	                        						
 	                        					{/foreach}
                         						<td>
-                        							<a href="/CMS/EditData/{$page->object_name}?id={$object_id}">Edit</a>
-                        							<a href="/CMS/DeleteData/{$page->object_name}?id={$object_id}">Delete</a>
+                        							<a href="/Manage/EditData/{$page->object_name}?id={$object_id}">Edit</a>
+                        							<a href="/Manage/DeleteData/{$page->object_name}?id={$object_id}">Delete</a>
                         						</td>
                         					</tr>
                         				{/foreach}
