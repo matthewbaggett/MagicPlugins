@@ -1,0 +1,17 @@
+BlogPost:
+  id:
+    key: true
+    type: integer
+    length: 10
+  user:
+    foreign: User.id
+  written:
+    type: timestamp
+  published:
+    type: timestamp
+  title:
+    type: text
+    length: 320
+  content:
+    type: text
+    length: -1
