@@ -1,5 +1,5 @@
 <?php 
-class CMSController extends MagicBaseController{
+class ManageController extends MagicBaseController{
 	
 	private $user;
 	
@@ -9,7 +9,7 @@ class CMSController extends MagicBaseController{
 		$this->user = new User();
 	}
 	public function Factory(){
-		return new CMSController();
+		return new self();
 	}
 	
 	public function setup(){
