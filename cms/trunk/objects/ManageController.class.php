@@ -16,7 +16,7 @@ class ManageController extends MagicBaseController{
 		$application = Application::GetInstance();
 		$application->page_reset();
 	}
-	
+
 	public function AllActions($action){
 		switch($action){
 			case 'Login':
@@ -72,7 +72,19 @@ class ManageController extends MagicBaseController{
 	 */
 	public function DefaultAction(){
 		$this->application->page->user = $_SESSION['user'];
-		//echo "<pre>"; print_r($_SESSION); echo "</pre>"; die();
+		
+		$this->application->page->stats = array(
+			'views' => array(
+				'today' => ViewSearcher::Factory()->search_by_accesstime(strtotime('24 hours ago'), ViewSearcher::MODE_MORE_THAN)->count(),
+				'week'	=> ViewSearcher::Factory()->search_by_accesstime(strtotime('1 week ago'), ViewSearcher::MODE_MORE_THAN)->count(),
+				'month' => ViewSearcher::Factory()->search_by_accesstime(strtotime('1 month ago'), ViewSearcher::MODE_MORE_THAN)->count()
+			), 
+			'visitors' => array(
+				'today' => 5,
+				'week'	=> 10,
+				'month' => 70
+			)
+		);
 	}
 	
 	public function LogoutAction(){

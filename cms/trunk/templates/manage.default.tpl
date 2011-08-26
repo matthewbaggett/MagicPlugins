@@ -21,65 +21,58 @@
                             </h2>
                         </header>
                         <section class="container_6 clearfix">
-                                <div class="grid_4 clearfix">
+                                <div class="stats grid_4 clearfix">
                                     <header class="clearfix">
-                                    <ul class="fr action-buttons">
-                                        <li><a href="#" class="current button button-gray no-text" title="Today's Stats"><span class="calendar-view-day"></span></a></li>
-                                        <li><a href="#" class="button button-gray no-text" title="This Week's Stats"><span class="calendar-view-week"></span></a></li>
-                                        <li><a href="#" class="button button-gray no-text" title="This Month's Stats"><span class="calendar-view-month"></span></a></li>
-                                    </ul>
-                                    <h3>Today's Stats</h3>
+	                                    <ul class="fr action-buttons">
+	                                        <li><a href="#" class="today button button-gray no-text" title="Today's Stats"><span class="calendar-view-day"></span></a></li>
+	                                        <li><a href="#" class="week button button-gray no-text" title="This Week's Stats"><span class="calendar-view-week"></span></a></li>
+	                                        <li><a href="#" class="month button button-gray no-text" title="This Month's Stats"><span class="calendar-view-month"></span></a></li>
+	                                    </ul>
+	                                    <h3>Today's Stats</h3>
                                     </header>
-                                    <section>
-                                    <div class="grid_1 alpha">
-                                        <div class="widget black ac">
-                                            <header><h2>Orders</h2></header>
-                                            <section><h1>20</h1></section>
-                                        </div>
-                                    </div>
-                                    <div class="grid_1">
-                                        <div class="widget black ac">
-                                            <header><h2>Paid Invoices</h2></header>
-                                            <section><h1>10</h1></section>
-                                        </div>
-                                    </div>
-                                    <div class="grid_1">
-                                        <div class="widget black ac">
-                                            <header><h2>Affiliate Signups</h2></header>
-                                            <section><h1>30</h1></section>
-                                        </div>
-                                    </div>
-                                    <div class="grid_1 omega">
-                                        <div class="widget black ac">
-                                            <header><h2>Affiliate Orders</h2></header>
-                                            <section><h1>50</h1></section>
-                                        </div>
-                                    </div>
-                                    <div class="grid_1 alpha">
-                                        <div class="widget black ac">
-                                            <header><h2>Tickets</h2></header>
-                                            <section><h1>20</h1></section>
-                                        </div>
-                                    </div>
-                                    <div class="grid_1">
-                                        <div class="widget black ac">
-                                            <header><h2>Offline Chats</h2></header>
-                                            <section><h1>10</h1></section>
-                                        </div>
-                                    </div>
-                                    <div class="grid_1">
-                                        <div class="widget black ac">
-                                            <header><h2>Alerts</h2></header>
-                                            <section><h1>20</h1></section>
-                                        </div>
-                                    </div>
-                                    <div class="grid_1 omega">
-                                        <div class="widget black ac">
-                                            <header><h2>Errors</h2></header>
-                                            <section><h1>20</h1></section>
-                                        </div>
-                                    </div>
+                                    <section class="stats today">
+	                                    <div class="grid_1 alpha">
+	                                        <div class="widget black ac">
+	                                            <header><h2>Views</h2></header>
+	                                            <section><h1>{$page->stats['views']['today']}</h1></section>
+	                                        </div>
+	                                    </div>
+	                                    <div class="grid_1">
+	                                        <div class="widget black ac">
+	                                            <header><h2>Visitors</h2></header>
+	                                            <section><h1>{$page->stats['visitors']['today']}</h1></section>
+	                                        </div>
+	                                    </div>
                                     </section>
+                                    <section class="stats week">
+	                                    <div class="grid_1 alpha">
+	                                        <div class="widget black ac">
+	                                            <header><h2>Views</h2></header>
+	                                            <section><h1>{$page->stats['views']['week']}</h1></section>
+	                                        </div>
+	                                    </div>
+	                                    <div class="grid_1">
+	                                        <div class="widget black ac">
+	                                            <header><h2>Visitors</h2></header>
+	                                            <section><h1>{$page->stats['visitors']['week']}</h1></section>
+	                                        </div>
+	                                    </div>
+                                    </section>
+                                    <section class="stats month">
+	                                    <div class="grid_1 alpha">
+	                                        <div class="widget black ac">
+	                                            <header><h2>Views</h2></header>
+	                                            <section><h1>{$page->stats['views']['month']}</h1></section>
+	                                        </div>
+	                                    </div>
+	                                    <div class="grid_1">
+	                                        <div class="widget black ac">
+	                                            <header><h2>Visitors</h2></header>
+	                                            <section><h1>{$page->stats['visitors']['month']}</h1></section>
+	                                        </div>
+	                                    </div>
+                                    </section>
+                                    
                                 </div>
 
                                 <!-- Progress Bars -->
@@ -105,108 +98,6 @@
                     </div>
                     <!-- End Statistics Section -->
 
-                    <!-- Analytics Section -->
-                    <div class="main-content">
-                        <header>
-                            <ul class="action-buttons clearfix fr">
-                                <li><a href="#" class="button button-gray no-text"><span class="wrench"></span></a></li>
-                                <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
-                            </ul>
-                            <h2>
-                                Analytics
-                            </h2>
-                        </header>
-                        <section class="sortable container_6 clearfix">
-                                <div class="grid_6">
-                                    <div class="message notice">You can drag the widget headers to rearrange the widgets. Click on the graph to view its details.</div>
-                                </div>
-                                <div class="grid_2 widget-container" id="sortable-1" draggable="true">
-                                    <h2 class="report-icon">Reporting Bar Graph</h2>
-                                    <div class="widget has-details">
-                                        <header>
-                                            <ul class="fr action-buttons small">
-                                                <li><a href="#" class="widget-close"><span class="close"></span></a></li>
-                                            </ul>
-                                            <h2><a rel="#report-details">As of January, 2011</a></h2>
-                                        </header>
-                                        <section>
-                                            <div id="reporting-bar" class="report-preview"></div>
-                                        </section>
-                                    </div>
-                                </div>
-                                <div class="grid_2 widget-container" id="sortable-2" draggable="true">
-                                    <h2 class="report-icon">Reporting Filled Graph</h2>
-                                    <div class="widget has-details">
-                                        <header>
-                                            <ul class="fr action-buttons small">
-                                                <li><a href="#" class="widget-close"><span class="close"></span></a></li>
-                                            </ul>
-                                            <h2><a rel="#report-details">As of January, 2011</a></h2>
-                                        </header>
-                                        <section>
-                                            <div id="reporting-filled" class="report-preview"></div>
-                                        </section>
-                                    </div>
-                                </div>
-                                <div class="grid_2 widget-container" id="sortable-3" draggable="true">
-                                    <h2 class="report-icon">Reporting Line Graph</h2>
-                                    <div class="widget has-details">
-                                        <header>
-                                            <ul class="fr action-buttons small">
-                                                <li><a href="#" class="widget-close"><span class="close"></span></a></li>
-                                            </ul>
-                                            <h2><a rel="#report-details">As of January, 2011</a></h2>
-                                        </header>
-                                        <section>
-                                            <div id="reporting-line" class="report-preview"></div>
-                                        </section>
-                                    </div>
-                                </div>
-                                <div class="grid_2 widget-container" id="sortable-4" draggable="true">
-                                    <h2 class="report-icon">Report Points Graph</h2>
-                                    <div class="widget has-details">
-                                        <header>
-                                            <ul class="fr action-buttons small">
-                                                <li><a href="#" class="widget-close"><span class="close"></span></a></li>
-                                            </ul>
-                                            <h2><a rel="#report-details">As of January, 2011</a></h2>
-                                        </header>
-                                        <section>
-                                            <div id="reporting-points" class="report-preview"></div>
-                                        </section>
-                                    </div>
-                                </div>
-                                <div class="grid_2 widget-container" id="sortable-5" draggable="true">
-                                    <h2 class="report-icon">Report Bar Graph</h2>
-                                    <div class="widget has-details">
-                                        <header>
-                                            <ul class="fr action-buttons small">
-                                                <li><a href="#" class="widget-close"><span class="close"></span></a></li>
-                                            </ul>
-                                            <h2><a rel="#report-details">As of January, 2011</a></h2>
-                                        </header>
-                                        <section>
-                                            <div id="reporting-bar2" class="report-preview"></div>
-                                        </section>
-                                    </div>
-                                </div>
-                                <div class="grid_2 widget-container" id="sortable-6" draggable="true">
-                                    <h2 class="report-icon">Report Line Graph</h2>
-                                    <div class="widget has-details">
-                                        <header>
-                                            <ul class="fr action-buttons small">
-                                                <li><a href="#" class="widget-close"><span class="close"></span></a></li>
-                                            </ul>
-                                            <h2><a rel="#report-details">As of January, 2011</a></h2>
-                                        </header>
-                                        <section>
-                                            <div id="reporting-line2" class="report-preview"></div>
-                                        </section>
-                                    </div>
-                                </div>
-                        </section>
-                    </div>
-                    <!-- End Analytics Section -->
 
                 </section>
 

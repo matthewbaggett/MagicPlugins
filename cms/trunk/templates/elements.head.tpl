@@ -34,3 +34,7 @@
 <!--[if lt IE 9]>
 <script type="text/javascript" src="{$page->site->sys_root}/plugins/cms/resources/js/ie.js"></script>
 <![endif]-->
+
+{foreach from=$page->site->scripts item=script}
+	<script type="text/javascript" src="{$script}"></script>
+{/foreach}
