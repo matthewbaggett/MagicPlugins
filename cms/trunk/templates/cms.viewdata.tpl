@@ -28,23 +28,23 @@
                         				</tr>
                         				{foreach from=$page->data key=i item=row}
                         					<tr>
-                        					{foreach from=$row key=column_id item=column_value}
-                        						{$object_id = $row->id}
-                        						<td class="cell_{$i}_{$column_id} column_{$column_id} object_{$page->object_name} object_id_{$object_id}">
-                        						{if $page->object_name eq 'Mail'}
-                        							{if $column_id eq 'to' || $column_id eq 'from'}
-                        								<pre>{print_r(unserialize($column_value))}</pre>
-                        							{elseif ($column_id == 'subject')}
-                        								<pre>{$column_value}</pre>
-                        							{else}
-                        								{$column_value}
-                        							{/if}
-                        						{else}
-                        							{$column_value}
-                        						{/if}
-                        						</td>
-                        						
-                        					{/foreach}
+	                        					{foreach from=$row key=column_id item=column_value}
+	                        						{$object_id = $row->id}
+	                        						<td class="cell_{$i}_{$column_id} column_{$column_id} object_{$page->object_name} object_id_{$object_id}">
+	                        						{if $page->object_name eq 'Mail'}
+	                        							{if $column_id eq 'to' || $column_id eq 'from'}
+	                        								<pre>{print_r(unserialize($column_value))}</pre>
+	                        							{elseif ($column_id == 'subject')}
+	                        								<pre>{$column_value}</pre>
+	                        							{else}
+	                        								{$column_value}
+	                        							{/if}
+	                        						{else}
+	                        							{$column_value}
+	                        						{/if}
+	                        						</td>
+	                        						
+	                        					{/foreach}
                         						<td>
                         							<a href="/CMS/EditData/{$page->object_name}?id={$object_id}">Edit</a>
                         							<a href="/CMS/DeleteData/{$page->object_name}?id={$object_id}">Delete</a>

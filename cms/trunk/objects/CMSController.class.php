@@ -168,7 +168,8 @@ class CMSController extends MagicBaseController{
 			
 			$this->application->page->objects[] = array(
 					'name' => $object, 
-					'instances' => $instances->num, 
+					'instances' => $instances->num,
+					'instances_abv' => MagicUtils::Abbreviate($instances->num),
 					'changes' => $changes->num,
 					'changes_avg' => $changes_avg,
 				);

@@ -31,7 +31,7 @@
                         				{foreach from=$page->objects item=object}
                         					<tr>
                         						<td>{$object['name']}</td>
-                        						<td>{$object['instances']}</td>
+                        						<td>{$object['instances']} {$object['instances_abv']}</td>
                         						<td>{$object['changes']}</td>
                         						<td>{$object['changes_avg']}</td>
                         						<td><a href="/CMS/ViewData/{$object['name']}">Data</a></td>
