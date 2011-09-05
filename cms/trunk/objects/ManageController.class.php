@@ -235,6 +235,7 @@ class ManageController extends MagicBaseController{
 		
 		// Push things into the template.
 		
+		$this->application->page->id = $id;
 		$this->application->page->object_name = $object_name;
 		$this->application->page->object = $oObject;
 		$this->application->page->columns = $columns;

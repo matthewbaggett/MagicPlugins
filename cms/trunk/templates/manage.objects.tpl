@@ -18,7 +18,7 @@
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a href="/Manage/">Back to Dashboard</a>
+                        			<a class="button small red" href="/Manage/">Back to Dashboard</a>
                         			<table class="datatable">
                         				<tr>
                         					<th>Object</th>

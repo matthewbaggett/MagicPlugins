@@ -12,21 +12,30 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                Objects - Data - {$page->object_name}
+                                Objects - Data - {$page->object_name} - #{$page->id}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a href="/Manage/Objects/list">Back to Objects</a>
-									<a href="/Manage/ViewSchema/{$page->object_name}">View Schema for {$page->object_name}</a>
-                        			<form>
+                        			<a class="button small red" href="/Manage/Objects/list">Back to Objects</a>
+                        			<a class="button small rosy" href="/Manage/ViewData/{$page->object_name}">Back to list of {Inflect::pluralize($page->object_name)}</a>
+									<a class="button small green" href="/Manage/ViewSchema/{$page->object_name}">View Schema for {$page->object_name}</a>
+                        			<form action="/Manage/EditData/{$page->object_name}?id={$page->id}" method="POST">
+                        				<table>
                         				{foreach from=$page->columns item=column}
-                        					<div class="formrow {$column}">
-                        						<label for="{$column}">{$column}</label>
-                        						<input id="{$column}" type="text" value="{$page->object->get_named_column($column)}"/>
-                        					</div>
+                        					<tr class="formrow {$column}">
+                        						<td><label for="{$column}">{$column}</label></td>
+                        						<td><input id="{$column}" type="text" value="{$page->object->get_named_column($column)}"/></td>
+                        					</tr>
                         				{/foreach}
+                        					<tr>
+                        						<td colspan="2">
+                        							<input class="button small green" type="submit" value="Save" />
+                        							<input class="button small red" type="submit" value="Cancel" />
+                        						</td>
+                        					</tr>
+                        				</table>
                         			</form>
                         			
                                 </section>

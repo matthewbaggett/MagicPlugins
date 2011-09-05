@@ -8,6 +8,7 @@
 <link rel="stylesheet" media="screen" href="{$page->site->sys_root}/plugins/cms/resources/css/messages.css" />
 <link rel="stylesheet" media="screen" href="{$page->site->sys_root}/plugins/cms/resources/css/forms.css" />
 <link rel="stylesheet" media="screen" href="{$page->site->sys_root}/plugins/cms/resources/css/tables.css" />
+<link rel="stylesheet" media="screen" href="{$page->site->sys_root}/plugins/cms/resources/css/buttons.css" />
 
 <!--[if lt IE 8]>
 <link rel="stylesheet" media="screen" href="{$page->site->sys_root}/plugins/cms/resources/css/ie.css" />

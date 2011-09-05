@@ -18,8 +18,8 @@
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a href="/Manage/Objects/list">Back to Objects</a>
-                        			<a href="/Manage/ViewData/{$page->object_name}">View Data for {$page->object_name}</a>
+                        			<a class="button small red" href="/Manage/Objects/list">Back to Objects</a>
+                        			<a class="button small red" href="/Manage/ViewData/{$page->object_name}">View Data for {$page->object_name}</a>
                         			<table class="datatable">
                         				<tr>
                         					<th>Column</th>
