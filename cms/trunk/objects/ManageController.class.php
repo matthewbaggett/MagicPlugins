@@ -222,4 +222,21 @@ class ManageController extends MagicBaseController{
 				->execute();
 		
 	}
+	public function EditDataAction(){
+		$object_name = $_REQUEST['parameter'];
+		$object_searcher_name = "{$object_name}Searcher";
+		$id = $_GET['id'];
+		$oObjectSearcher = new $object_searcher_name;
+		$oObject = $oObjectSearcher->search_by_id($id)->execute_one();
+		if($oObject === FALSE){
+			throw new MagicException("Cannot load {$object_name} with ID {$id}... Doesn't exist!");
+		}
+		$columns = explode("|",trim($object_name::MAGIC_OBJECT_CONTAINS));
+		
+		// Push things into the template.
+		
+		$this->application->page->object_name = $object_name;
+		$this->application->page->object = $oObject;
+		$this->application->page->columns = $columns;
+	}
 }

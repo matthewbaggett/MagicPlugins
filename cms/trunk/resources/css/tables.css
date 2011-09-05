@@ -91,7 +91,7 @@ table.datatable>thead>tr>th:not(:first-child)
 }
 table.datatable>tbody>tr>th,table.datatable>tbody>tr>td
 {
-	padding: 5px 5px;
+	padding: 2px 2px;
 	vertical-align: middle;
 }
 table.datatable>tbody>tr:nth-child(odd)>td
