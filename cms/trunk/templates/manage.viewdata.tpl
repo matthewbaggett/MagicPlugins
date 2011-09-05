@@ -12,7 +12,7 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t("Objects - {t("Data")} - {$page->object_name}
+                                {t("Objects")} - {t("Data")} - {$page->object_name}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
