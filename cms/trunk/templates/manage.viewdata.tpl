@@ -12,7 +12,7 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                Objects - Data - {$page->object_name}
+                                {t("Objects - {t("Data")} - {$page->object_name}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
@@ -46,8 +46,8 @@
 	                        						
 	                        					{/foreach}
                         						<td>
-                        							<a href="/Manage/EditData/{$page->object_name}?id={$object_id}">Edit</a>
-                        							<a href="/Manage/DeleteData/{$page->object_name}?id={$object_id}">Delete</a>
+                        							<a href="/Manage/EditData/{$page->object_name}?id={$object_id}">{t("Edit")}</a>
+                        							<a href="/Manage/DeleteData/{$page->object_name}?id={$object_id}">{t("Delete")}</a>
                         						</td>
                         					</tr>
                         				{/foreach}
@@ -66,11 +66,5 @@
         </section>
     </div>
     
-    <footer>
-        <div id="footer-inner" class="container_8 clearfix">
-            <div class="grid_8">
-                <span class="fr"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity from 127.0.0.1 - <a href="#">Details</a> | &copy; 2010. All rights reserved. Theme design by VivantDesigns
-            </div>
-        </div>
-    </footer>
+    {include file="elements.footer.tpl"}
 {include file="elements.end.tpl"}

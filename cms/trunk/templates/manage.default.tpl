@@ -17,7 +17,7 @@
                                 <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
                             </ul>
                             <h2>
-                                Statistics
+                                {t("Statistics")}
                             </h2>
                         </header>
                         <section class="container_6 clearfix">
@@ -28,18 +28,18 @@
 	                                        <li><a href="#" class="week button button-gray no-text" title="This Week's Stats"><span class="calendar-view-week"></span></a></li>
 	                                        <li><a href="#" class="month button button-gray no-text" title="This Month's Stats"><span class="calendar-view-month"></span></a></li>
 	                                    </ul>
-	                                    <h3>Today's Stats</h3>
+	                                    <h3>{t("Today's Stats")}</h3>
                                     </header>
                                     <section class="stats today">
 	                                    <div class="grid_1 alpha">
 	                                        <div class="widget black ac">
-	                                            <header><h2>Views</h2></header>
+	                                            <header><h2>{t("Views")}</h2></header>
 	                                            <section><h1>{$page->stats['views']['today']}</h1></section>
 	                                        </div>
 	                                    </div>
 	                                    <div class="grid_1">
 	                                        <div class="widget black ac">
-	                                            <header><h2>Visitors</h2></header>
+	                                            <header><h2>{t("Visitors")}</h2></header>
 	                                            <section><h1>{$page->stats['visitors']['today']}</h1></section>
 	                                        </div>
 	                                    </div>
@@ -47,13 +47,13 @@
                                     <section class="stats week">
 	                                    <div class="grid_1 alpha">
 	                                        <div class="widget black ac">
-	                                            <header><h2>Views</h2></header>
+	                                            <header><h2>{t("Views")}</h2></header>
 	                                            <section><h1>{$page->stats['views']['week']}</h1></section>
 	                                        </div>
 	                                    </div>
 	                                    <div class="grid_1">
 	                                        <div class="widget black ac">
-	                                            <header><h2>Visitors</h2></header>
+	                                            <header><h2>{t("Visitors")}</h2></header>
 	                                            <section><h1>{$page->stats['visitors']['week']}</h1></section>
 	                                        </div>
 	                                    </div>
@@ -61,13 +61,13 @@
                                     <section class="stats month">
 	                                    <div class="grid_1 alpha">
 	                                        <div class="widget black ac">
-	                                            <header><h2>Views</h2></header>
+	                                            <header><h2>{t("Views")}</h2></header>
 	                                            <section><h1>{$page->stats['views']['month']}</h1></section>
 	                                        </div>
 	                                    </div>
 	                                    <div class="grid_1">
 	                                        <div class="widget black ac">
-	                                            <header><h2>Visitors</h2></header>
+	                                            <header><h2>{t("Visitors")}</h2></header>
 	                                            <section><h1>{$page->stats['visitors']['month']}</h1></section>
 	                                        </div>
 	                                    </div>
@@ -107,11 +107,5 @@
         </section>
     </div>
     
-    <footer>
-        <div id="footer-inner" class="container_8 clearfix">
-            <div class="grid_8">
-                <span class="fr"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity from 127.0.0.1 - <a href="#">Details</a> | &copy; 2010. All rights reserved. Theme design by VivantDesigns
-            </div>
-        </div>
-    </footer>
+    {include file="elements.footer.tpl"}
 {include file="elements.end.tpl"}
