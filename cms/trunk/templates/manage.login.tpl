@@ -34,7 +34,7 @@ $(document).ready(function(){
 			<ul class="action-buttons clearfix fr">
 				<li><a href="{$page->site->sys_root}/Manage/Forgot-Password" class="button button-gray"><span class="help"></span>Forgot Password</a></li>
 			</ul>
-			<h2>Turbo Admin {t("Login")}</h2>
+			<h2>Turbo Admin {t}Login{/t}</h2>
 		</header>
 		<section>
 			{include file="elements.notes.tpl"}
@@ -42,12 +42,12 @@ $(document).ready(function(){
 				<p>
 					<input type="text" id="username_or_email"  class="large" value="" name="username_or_email" required="required" placeholder="{t('Username / Email')}" />
 					<input type="password" id="password" class="large" value="" name="password" required="required" placeholder="{t('Password')}" />
-					<button class="large button button-gray fr" type="submit">{t("Login")}</button>
+					<button class="large button button-gray fr" type="submit">{t}Login{/t}</button>
 				</p>
 				<p class="clearfix">
 					<span class="fl">
 						<input type="checkbox" id="remember" class="" value="1" name="remember"/>
-						<label class="choice" for="remember">{t("Keep me logged-in for two weeks")}</label>
+						<label class="choice" for="remember">{t}Keep me logged-in for two weeks{/t}</label>
 					</span>
 				</p>
 			</form>

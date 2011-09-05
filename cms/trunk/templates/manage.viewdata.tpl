@@ -12,18 +12,18 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t("Objects")} - {t("Data")} - {$page->object_name}
+                                {t}Objects{/t} - {t}Data{/t} - {$page->object_name}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a class="button small red" href="/Manage/Objects/list">Back to Objects</a>
-									<a class="button small green" href="/Manage/ViewSchema/{$page->object_name}">View Schema for {$page->object_name}</a>
+                        			<a class="button small red" href="/Manage/Objects/list">{t}Back to Objects</a>
+									<a class="button small green" href="/Manage/ViewSchema/{$page->object_name}">{t}View Schema for [{$page->object_name}]{/t}</a>
                         			<table class="datatable">
                         				<tr>
                         					{foreach from=end($page->data) key=column_id item=column_value}
-                        						<th class="cell_{$i}_{$column_id} column_{$column_id}">{$column_id}</td>
+                        						<th class="cell_{$i}_{$column_id} column_{$column_id}">{$column_id|t}</td>
                         					{/foreach}
                         				</tr>
                         				{foreach from=$page->data key=i item=row}
@@ -46,8 +46,8 @@
 	                        						
 	                        					{/foreach}
                         						<td>
-                        							<a href="/Manage/EditData/{$page->object_name}?id={$object_id}">{t("Edit")}</a>
-                        							<a href="/Manage/DeleteData/{$page->object_name}?id={$object_id}">{t("Delete")}</a>
+                        							<a href="/Manage/EditData/{$page->object_name}?id={$object_id}">{t}Edit{/t}</a>
+                        							<a href="/Manage/DeleteData/{$page->object_name}?id={$object_id}">{t}Delete{/t}</a>
                         						</td>
                         					</tr>
                         				{/foreach}

@@ -12,20 +12,20 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t("Objects")} - {t("Schema")} - {$page->object_name}
+                                {t}Objects{/t} - {t}Schema{/t} - {$page->object_name}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a class="button small red" href="/Manage/Objects/list">{t("Back to Objects")}</a>
-                        			<a class="button small red" href="/Manage/ViewData/{$page->object_name}">{t("View Data for")} {$page->object_name}</a>
+                        			<a class="button small red" href="/Manage/Objects/list">{t}Back to Objects{/t}</a>
+                        			<a class="button small red" href="/Manage/ViewData/{$page->object_name}">{t}View Data for{/t} {$page->object_name}</a>
                         			<table class="datatable">
                         				<tr>
-                        					<th>{t("Column")}</th>
-                        					<th>{t("Type")}</th>
-                        					<th>{t("Length")}</th>
-                        					<th>{t("Range")}</th>
+                        					<th>{t}Column{/t}</th>
+                        					<th>{t}Type{/t}</th>
+                        					<th>{t}Length{/t}</th>
+                        					<th>{t}Range{/t}</th>
                         				</tr>
                         				{foreach from=$page->object_schema key=name item=column}
                         					<tr>

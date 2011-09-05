@@ -17,7 +17,7 @@
                                 <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
                             </ul>
                             <h2>
-                                {t("Statistics")}
+                                {t}Statistics{/t}
                             </h2>
                         </header>
                         <section class="container_6 clearfix">
@@ -28,18 +28,18 @@
 	                                        <li><a href="#" class="week button button-gray no-text" title="This Week's Stats"><span class="calendar-view-week"></span></a></li>
 	                                        <li><a href="#" class="month button button-gray no-text" title="This Month's Stats"><span class="calendar-view-month"></span></a></li>
 	                                    </ul>
-	                                    <h3>{t("Today's Stats")}</h3>
+	                                    <h3>{t}Today's Stats{/t}</h3>
                                     </header>
                                     <section class="stats today">
 	                                    <div class="grid_1 alpha">
 	                                        <div class="widget black ac">
-	                                            <header><h2>{t("Views")}</h2></header>
+	                                            <header><h2>{t}Views{/t}</h2></header>
 	                                            <section><h1>{$page->stats['views']['today']}</h1></section>
 	                                        </div>
 	                                    </div>
 	                                    <div class="grid_1">
 	                                        <div class="widget black ac">
-	                                            <header><h2>{t("Visitors")}</h2></header>
+	                                            <header><h2>{t}Visitors{/t}</h2></header>
 	                                            <section><h1>{$page->stats['visitors']['today']}</h1></section>
 	                                        </div>
 	                                    </div>
@@ -47,13 +47,13 @@
                                     <section class="stats week">
 	                                    <div class="grid_1 alpha">
 	                                        <div class="widget black ac">
-	                                            <header><h2>{t("Views")}</h2></header>
+	                                            <header><h2>{t}Views{/t}</h2></header>
 	                                            <section><h1>{$page->stats['views']['week']}</h1></section>
 	                                        </div>
 	                                    </div>
 	                                    <div class="grid_1">
 	                                        <div class="widget black ac">
-	                                            <header><h2>{t("Visitors")}</h2></header>
+	                                            <header><h2>{t}Visitors{/t}</h2></header>
 	                                            <section><h1>{$page->stats['visitors']['week']}</h1></section>
 	                                        </div>
 	                                    </div>
@@ -61,13 +61,13 @@
                                     <section class="stats month">
 	                                    <div class="grid_1 alpha">
 	                                        <div class="widget black ac">
-	                                            <header><h2>{t("Views")}</h2></header>
+	                                            <header><h2>{t}Views{/t}</h2></header>
 	                                            <section><h1>{$page->stats['views']['month']}</h1></section>
 	                                        </div>
 	                                    </div>
 	                                    <div class="grid_1">
 	                                        <div class="widget black ac">
-	                                            <header><h2>{t("Visitors")}</h2></header>
+	                                            <header><h2>{t}Visitors{/t}</h2></header>
 	                                            <section><h1>{$page->stats['visitors']['month']}</h1></section>
 	                                        </div>
 	                                    </div>
