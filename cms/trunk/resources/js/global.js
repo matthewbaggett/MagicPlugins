@@ -93,7 +93,7 @@ $(document).ready(function() {
     /**
      * Setup tooltips
      */
-    $('[title]').tooltip({
+    $('[title]').not('dfn').tooltip({
         effect: 'slide', offset: [-14, 0], position: 'top center', layout: '<div><em/></div>',
         onBeforeShow: function() {
             this.getTip().each(function(){
