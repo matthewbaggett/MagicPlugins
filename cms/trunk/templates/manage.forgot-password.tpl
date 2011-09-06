@@ -9,7 +9,7 @@ $(document).ready(function(){
 
     $.tools.validator.fn("#username_or_email", function(input, value) {
         return value!='Username / Email' ? true : {     
-            en: "Please complete this mandatory field"
+            en: "{t nodfn=true}Please complete this mandatory field{/t}"
         };
     });
 

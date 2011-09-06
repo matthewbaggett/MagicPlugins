@@ -12,7 +12,7 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t}Objects{/t} - {t}Data{/t} - {$page->object_name} - #{$page->id}
+                                {t}Objects{/t} - {t}Data{/t} - {$page->object_name|translate} - #{$page->id}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
