@@ -28,6 +28,7 @@ class ManageController extends MagicBaseController{
 		$app_instance = MagicApplication::GetInstance();
 		$app_instance->painter->smarty->setTemplateDir(ROOT."plugins/cms/templates");
 		$app_instance->painter->smarty->caching = Smarty::CACHING_OFF;
+		$this->application->page->user = $_SESSION['user'];
 	}
 	
 	public function CheckLogin(){
@@ -71,7 +72,7 @@ class ManageController extends MagicBaseController{
 	 * Actions!
 	 */
 	public function DefaultAction(){
-		$this->application->page->user = $_SESSION['user'];
+		
 		
 		$this->application->page->stats = array(
 			'views' => array(
