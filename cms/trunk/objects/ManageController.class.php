@@ -97,7 +97,7 @@ class ManageController extends MagicBaseController{
 		if(count($_POST) > 0){
 			$this->LoginPostAction();
 		}else{
-			$_SESSION['notes'][] = "Please enter your Username or Email and Password to begin.";
+			$_SESSION['notes'][] = trans("Please enter your Username or Email and Password to begin.");
 		}
 	}
 	
@@ -120,7 +120,7 @@ class ManageController extends MagicBaseController{
 		if($last_access){
 			$time_of_last_update = MagicUtils::fuzzyTime($last_access->get_date_of_last_update());
 		}else{
-			$time_of_last_update = 'never!';
+			$time_of_last_update = trans('never!');
 		}
 		
 		
@@ -142,7 +142,7 @@ class ManageController extends MagicBaseController{
 		}elseif($oUser_by_username instanceof User){
 			$oUser = $oUser_by_username;
 		}else{
-			$_SESSION['notes'][] = "No user exists with the username/email {$_POST['username_or_email']}.";
+			$_SESSION['notes'][] = sprintf(trans("No user exists with the username/email %s"),$_POST['username_or_email']);
 			MagicUtils::redirect("Manage","Forgot-Password");
 		}
 		$new_password = MagicUtils::generate_password();
@@ -151,11 +151,11 @@ class ManageController extends MagicBaseController{
 		//print_r($oUser);
 		$mail = Mail::Factory();
 		$mail->set_to($oUser->get_email());
-		$mail->set_subject("Password reset");
+		$mail->set_subject(trans("Password reset"));
 		$mail->set_message("Hello {$oUser->get_username()}, your password has been reset to {$new_password}");
 		$mail->save();
 		$mail->send();
-		$_SESSION['notes'][] = "A password reset message was sent to {$oUser->get_email()}";
+		$_SESSION['notes'][] = sprintf(trans("A password reset message was sent to %s"), $oUser->get_email());
 		MagicUtils::redirect("Manage","Login");
 	}
 	

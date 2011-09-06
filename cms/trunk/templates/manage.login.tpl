@@ -8,13 +8,13 @@
 $(document).ready(function(){
     $.tools.validator.fn("#username_or_email", function(input, value) {
         return value!='Username / Email' ? true : {     
-            en: "Please complete this mandatory field"
+            en: "{t nodfn=true}Please complete this mandatory field{/t}"
         };
     });
     
     $.tools.validator.fn("#password", function(input, value) {
         return value!='Password' ? true : {     
-            en: "Please complete this mandatory field"
+            en: "{t nodfn=true}Please complete this mandatory field{/t}"
         };
     });
 
@@ -32,7 +32,7 @@ $(document).ready(function(){
 	<div class="login-box main-content">
 		<header>
 			<ul class="action-buttons clearfix fr">
-				<li><a href="{$page->site->sys_root}/Manage/Forgot-Password" class="button button-gray"><span class="help"></span>Forgot Password</a></li>
+				<li><a href="{$page->site->sys_root}/Manage/Forgot-Password" class="button button-gray"><span class="help"></span>{t}Forgot Password{/t}</a></li>
 			</ul>
 			<h2>Turbo Admin {t}Login{/t}</h2>
 		</header>
@@ -40,9 +40,9 @@ $(document).ready(function(){
 			{include file="elements.notes.tpl"}
 			<form id="form" action="{$page->site->sys_root}/Manage/Login" method="post" class="clearfix">
 				<p>
-					<input type="text" id="username_or_email"  class="large" value="" name="username_or_email" required="required" placeholder="{t('Username / Email')}" />
-					<input type="password" id="password" class="large" value="" name="password" required="required" placeholder="{t('Password')}" />
-					<button class="large button button-gray fr" type="submit">{t}Login{/t}</button>
+					<input type="text" id="username_or_email"  class="large" value="" name="username_or_email" required="required" placeholder="{t nodfn=true}Username / Email{/t}" />
+					<input type="password" id="password" class="large" value="" name="password" required="required" placeholder="{t nodfn=true}Password{/t}" />
+					<button class="large button button-gray fr" type="submit">{t nodfn=true}Login{/t}</button>
 				</p>
 				<p class="clearfix">
 					<span class="fl">
