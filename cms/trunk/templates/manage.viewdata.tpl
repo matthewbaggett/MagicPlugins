@@ -12,18 +12,18 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t}Objects{/t} - {t}Data{/t} - {$page->object_name}
+                                {t}Objects{/t} - {t}Data{/t} - {$page->object_name|translate}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a class="button small red" href="/Manage/Objects/list">{t}Back to Objects</a>
+                        			<a class="button small red" href="/Manage/Objects/list">{t}Back to Objects{/t}</a>
 									<a class="button small green" href="/Manage/ViewSchema/{$page->object_name}">{t}View Schema for [{$page->object_name}]{/t}</a>
                         			<table class="datatable">
                         				<tr>
                         					{foreach from=end($page->data) key=column_id item=column_value}
-                        						<th class="cell_{$i}_{$column_id} column_{$column_id}">{$column_id|t}</td>
+                        						<th class="cell_{$i}_{$column_id} column_{$column_id}">{$column_id|translate}</td>
                         					{/foreach}
                         				</tr>
                         				{foreach from=$page->data key=i item=row}
