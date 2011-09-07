@@ -5,10 +5,20 @@ BlogPost:
     length: 10
   user:
     foreign: User.id
-  written:
+  date_written:
+    type: timestamp
+  date_published:
     type: timestamp
   published:
-    type: timestamp
+    type: enum
+    enum:
+      yes
+      no
+  deleted:
+    type: enum
+    enum:
+      yes
+      no
   title:
     type: text
     length: 320
