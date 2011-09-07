@@ -7,7 +7,9 @@ class ManageBlogController extends ManageBaseCMSController{
 	
 	public function AllActions($action){
 		$this->CheckLogin();
+
 		parent::AllActions($action);
+		//print_r($this->application->page);die();
 	}
 	
 	
@@ -18,6 +20,7 @@ class ManageBlogController extends ManageBaseCMSController{
 		$arr_blog_posts = BlogPostSearcher::Factory()->execute();
 		
 		$this->application->page->arr_blog_posts = $arr_blog_posts;
+		$this->application->page->template = "../../blog/templates/blog.default.tpl";
 	}
 	
 	public function EditAction(){
@@ -28,6 +31,7 @@ class ManageBlogController extends ManageBaseCMSController{
 		$oBlogPost = BlogPost::Cast($oBlogPost);
 		
 		$this->application->page->blog_post = $oBlogPost;
+		$this->application->page->template = "../../blog/templates/blog.edit.tpl";
 	}
 	
 }
