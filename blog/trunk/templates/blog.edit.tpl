@@ -36,19 +36,25 @@
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="date_written">{t}Date written{/t}</label></td>
-	                        					<td><input name="date_written" id="date_written" value="{$page->blog_post->get_date_written()}"/></td>
+	                        					<td><input name="date_written" id="date_written" value="{date('Y/m/d H:i:s', $page->blog_post->get_date_written())}"/></td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="date_published">{t}Date published{/t}</label></td>
-	                        					<td><input name="date_published" id="date_published" value="{$page->blog_post->get_date_published()}"/></td>
+	                        					<td><input name="date_published" id="date_published" value="{date('Y/m/d H:i:s', $page->blog_post->get_date_published())}"/></td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="published">{t}Published{/t}</label></td>
-	                        					<td><input type="radio" name="published" value="yes"/> Yes <input type="radio" name="published" value="no"/> No </td>
+	                        					<td>
+	                        						<input type="radio" name="published" value="yes" {if $page->blog_post->get_published() == "yes"}checked="checked"{/if}/> Yes 
+	                        						<input type="radio" name="published" value="no" {if $page->blog_post->get_published() == "no"}checked="checked"{/if}/> No 
+	                        					</td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="deleted">{t}Deleted{/t}</label></td>
-	                        					<td><input type="radio" name="deleted" value="yes"/> Yes <input type="radio" name="deleted" value="no"/> No </td>
+	                        					<td>
+	                        						<input type="radio" name="deleted" value="yes" {if $page->blog_post->get_deleted() == "yes"}checked="checked"{/if}/> Yes 
+	                        						<input type="radio" name="deleted" value="no" {if $page->blog_post->get_deleted() == "no"}checked="checked"{/if}/> No 
+	                        					</td>
 	                        				</tr>
                         				</table>
                         			</form>
