@@ -2,6 +2,7 @@
 class ManageBaseCMSController extends MagicBaseController{
 	
 	protected $user;
+	protected $app_instance;
 	
 	public function __construct(){
 		parent::__construct();
@@ -18,9 +19,9 @@ class ManageBaseCMSController extends MagicBaseController{
 	}
 
 	public function AllActions($action){
-		$app_instance = MagicApplication::GetInstance();
-		$app_instance->painter->smarty->setTemplateDir(ROOT."plugins/cms/templates");
-		$app_instance->painter->smarty->caching = Smarty::CACHING_OFF;
+		$this->app_instance = MagicApplication::GetInstance();
+		$this->app_instance->painter->smarty->setTemplateDir(ROOT."plugins/cms/templates");
+		$this->app_instance->painter->smarty->caching = Smarty::CACHING_OFF;
 		$this->application->page->user = $_SESSION['user'];
 	}
 	
