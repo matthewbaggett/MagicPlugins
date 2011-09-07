@@ -12,7 +12,7 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t}Objects{/t}
+                                {t}Blog posts{/t}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
@@ -21,24 +21,30 @@
                         			<a class="button small red" href="/Manage/">{t}Back to Dashboard{/t}</a>
                         			<table class="datatable">
                         				<tr>
-                        					<th>{t}Object{/t}</th>
-                        					<th>{t}Instances{/t}</th>
-                        					<th>{t}Changes{/t}</th>
-                        					<th>{t}Changes / Instance{/t}</th>
-                        					<th>{t}Edit Data{/t}</th>
-                        					<th>{t}Edit Schema{/t}</th>
+                        					<th>{t}ID{/t}</th>
+                        					<th>{t}Title{/t}</th>
+                        					<th>{t}Written date{/t}</th>
+                        					<th>{t}Published date{/t}</th>
+                        					<th>{t}Published?{/t}</th>
+                        					<th>{t}Deleted?{/t}</th>
+                        					<th>{t}Author{/t}</th>
+                        					<th>{t}Edit post{/t}</th>
+                        					<th>{t}Delete post{/t}</th>
                         				</tr>
-                        				{foreach from=$page->objects item=object}
+                        				{foreach from=$page->arr_blog_posts item=oBlogPost}
                         					<tr>
-                        						<td>{$object['name']}</td>
-                        						<td>{$object['instances']} {$object['instances_abv']}</td>
-                        						<td>{$object['changes']}</td>
-                        						<td>{$object['changes_avg']}</td>
-                        						<td><a href="/Manage/ViewData/{$object['name']}">{t}Data{/t}</a></td>
-                        						<td><a href="/Manage/ViewSchema/{$object['name']}">{t}Schema{/t}</a></td>
+                        						<td>{$oBlogPost->get_id()}/{$oBlogPost->get_id36()}</td>
+                        						<td>{$oBlogPost->get_title()}</td>
+                        						<td>{date("Y/m/d H:i:s", $oBlogPost->get_date_written())}</td>
+                        						<td>{date("Y/m/d H:i:s", $oBlogPost->get_date_published())}</td>
+                        						<td>{if $oBlogPost->get_is_published()} yes {else} no {/if}</td>
+                        						<td>{if $oBlogPost->get_deleted() == 'yes'} yes {else} no {/if}</td>
+                        						<td>{$oBlogPost->get_parent_user()->get_firstname()} {$oBlogPost->get_parent_user()->get_surname()}</td>
+                        						<td><a href="/ManageBlog/Edit/{$oBlogPost->get_id36()}">{t}Edit{/t}</a></td>
+                        						<td><a href="/ManageBlog/Delete/{$oBlogPost->get_id36()}">{t}Delete{/t}</a></td>
                         					</tr>
                         				{/foreach}
-                        				</table>
+                        			</table>
                                 </section>
                         	</div>
                         </section>

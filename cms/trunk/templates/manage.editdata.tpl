@@ -31,8 +31,8 @@
                         				{/foreach}
                         					<tr>
                         						<td colspan="2">
-                        							<input class="button small green" type="submit" value="{t('Save')}" />
-                        							<input class="button small red" type="submit" value="{t('Cancel')}" />
+                        							<input class="button small green" type="submit" value="{t}Save{/t}" />
+                        							<input class="button small red" type="submit" value="{t}Cancel{/t}" />
                         						</td>
                         					</tr>
                         				</table>
