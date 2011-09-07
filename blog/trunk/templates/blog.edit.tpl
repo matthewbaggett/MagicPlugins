@@ -12,7 +12,7 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t}Blog posts{/t}
+                                {t}Blog posts{/t} - {t}Edit{/t} - {$page->blog_post->get_title()}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
@@ -24,23 +24,23 @@
                         				<table>
 	                        				<tr>
 	                        					<td><label for="title">{t}Title{/t}</label></td>
-	                        					<td><input name="title" id="title"/></td>
+	                        					<td><input name="title" id="title" value="{$page->blog_post->get_title()}"/></td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="author">{t}Author{/t}</label></td>
-	                        					<td><input name="author" id="author"/></td>
+	                        					<td><input name="author" id="author"  value="{$page->blog_post->get_user()}"/></td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="content">{t}Content{/t}</label></td>
-	                        					<td><textarea name="content" id="content"></textarea></td>
+	                        					<td><textarea name="content" id="content">{$page->blog_post->get_content()}</textarea></td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="date_written">{t}Date written{/t}</label></td>
-	                        					<td><input name="date_written" id="date_written"/></td>
+	                        					<td><input name="date_written" id="date_written" value="{$page->blog_post->get_date_written()}"/></td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="date_published">{t}Date published{/t}</label></td>
-	                        					<td><input name="date_published" id="date_published"/></td>
+	                        					<td><input name="date_published" id="date_published" value="{$page->blog_post->get_date_published()}"/></td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="published">{t}Published{/t}</label></td>
