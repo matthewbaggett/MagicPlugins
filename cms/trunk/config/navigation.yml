@@ -1,0 +1,6 @@
+Dashboard:
+  Path: /Manage/
+  Weight: 999 
+Objects:
+  Path: /Manage/Objects/list
+  Weight: 1
