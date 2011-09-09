@@ -1,0 +1,32 @@
+Customer:
+  id:
+    key: true
+    type: integer
+    length: 10
+  username:
+    type: text
+    length: 255
+    min-length: 3
+  password:
+    type: text
+    length: 40
+    min-length: 40
+  email:
+    #validator: email
+    type: email
+  salutation:
+    type: enum
+    enum:
+      Mr
+      Mrs
+      Miss
+      Ms
+      Dr
+      Lord
+      Lady
+  firstname:
+    type: text
+    length: 255
+  surname:
+    type: text
+    length: 255
