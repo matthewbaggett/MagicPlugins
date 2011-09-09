@@ -42,7 +42,7 @@ class ManageBaseCMSController extends MagicBaseController{
 	
 		foreach($nav as $plugin_name => $element){
 			$element['Name'] = $plugin_name;
-			$weighted_nav[$element['Weight']] = $element;
+			$weighted_nav[$element['Weight'].'/'.$plugin_name] = $element;
 		}
 		ksort($weighted_nav);
 		$weighted_nav = array_reverse($weighted_nav);
