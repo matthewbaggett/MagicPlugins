@@ -3,30 +3,50 @@ Customer:
     key: true
     type: integer
     length: 10
-  username:
+  user:
+    foreign: User.id
+  address_line_1:
+    type: text;
+    length: 255;
+  address_line_2:
+    type: text;
+    length: 255;
+  address_line_3:
+    type: text;
+    length: 255;
+  address_line_4:
+    type: text;
+    length: 255;
+  postcode:
+    type: text;
+    length: 8;
+  country:
+    type: Country.id
+
+Country:
+  id:
+    key: true
+    type: integer
+    length: 10
+  name:
     type: text
     length: 255
-    min-length: 3
-  password:
+  alpha2:
     type: text
-    length: 40
-    min-length: 40
-  email:
-    #validator: email
-    type: email
-  salutation:
-    type: enum
-    enum:
-      Mr
-      Mrs
-      Miss
-      Ms
-      Dr
-      Lord
-      Lady
-  firstname:
+    length: 2
+  alpha3:
+    type: text
+    length: 3
+  numeric:
+    type: text
+    length: 5
+    
+Brand:
+  id:
+    key: true
+    type: integer
+    length: 10
+  name:
     type: text
     length: 255
-  surname:
-    type: text
-    length: 255
+
