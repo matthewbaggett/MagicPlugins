@@ -21,16 +21,10 @@
                 <nav>
                 	
                     <ul class="clearfix">
-                        <li {if $page->server['REQUEST_URI'] eq '/Manage/'} class="active" {/if}><a href="/Manage/">{t}Dashboard{/t}</a></li>
-                        <li {if $page->server['REQUEST_URI'] eq '/Manage/Objects/list'} class="active" {/if}><a href="/Manage/Objects/list">{t}Objects{/t}</a></li>
-                        <!-- <li><a href="#" class="arrow-down">Dropdown</a>
-                            <ul>
-                                <li><a href="#">Submenu 1</a></li>
-                                <li><a href="#">Submenu 2</a></li>
-                                <li><a href="#">Submenu 3</a></li>
-                                <li><a href="#">Submenu 4</a></li>
-                            </ul>
-                        </li> -->
+                        
+                        {foreach from=$page->navigation item=nav}
+                        	<li class="{if $page->server['REQUEST_URI'] eq $nav['Path']} active {/if} weight_{$nav['Weight']}"><a href="{$nav['Path']}">{$nav['Name']}</a></li>
+                        {/foreach}
                         <li class="fr action">
                             <a href="documentation/index.html" class="button button-orange help" rel="#overlay"><span class="help"></span>{t}Help{/t}</a>
                         </li>

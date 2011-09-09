@@ -19,10 +19,34 @@ class ManageBaseCMSController extends MagicBaseController{
 	}
 
 	public function AllActions($action){
-		$this->app_instance = MagicApplication::GetInstance();
+		$this->app_instance = Application::GetInstance();
 		$this->app_instance->painter->smarty->setTemplateDir(ROOT."plugins/cms/templates");
 		$this->app_instance->painter->smarty->caching = Smarty::CACHING_OFF;
 		$this->application->page->user = $_SESSION['user'];
+		
+		$this->application->page->navigation = $this->getNavigation();
+			
+	}
+	
+	public function getNavigation(){
+		foreach(array_keys(Application::$config->raw['Plugins']) as $plugin_name){
+			if(file_exists(ROOT . "/plugins/{$plugin_name}/config/navigation.yml")){
+				$navigation[$plugin_name] = (array) Spyc::YAMLLoad(ROOT . "/plugins/{$plugin_name}/config/navigation.yml");
+			}
+			
+		}
+		$nav = array();
+		foreach($navigation as $plugin_name => $elements){
+			$nav = array_merge($nav,(array) $elements);
+		}
+	
+		foreach($nav as $plugin_name => $element){
+			$element['Name'] = $plugin_name;
+			$weighted_nav[$element['Weight']] = $element;
+		}
+		ksort($weighted_nav);
+		$weighted_nav = array_reverse($weighted_nav);
+		return $weighted_nav;
 	}
 	
 	public function CheckLogin(){
