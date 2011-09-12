@@ -171,8 +171,15 @@ class ManageController extends ManageBaseCMSController{
 				->addColumn("*")
 				->setLimit($offset,$per_page)
 				->execute();
-		
+		$app = Application::GetInstance();
+				
+		$custom_template = strtolower("manage.viewdata.{$this->application->page->object_name}.tpl");
+		$check_path = dirname(__FILE__)."/../templates/";
+		if(file_exists($check_path . $custom_template)){
+			$this->application->page->template = $custom_template;
+		}
 	}
+	
 	public function EditDataAction(){
 		$object_name = $_REQUEST['parameter'];
 		$object_searcher_name = "{$object_name}Searcher";

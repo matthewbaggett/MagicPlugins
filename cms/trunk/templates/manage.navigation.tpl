@@ -23,8 +23,19 @@
                     <ul class="clearfix">
                         
                         {foreach from=$page->navigation item=nav}
-                        	<li class="{if $page->server['REQUEST_URI'] eq $nav['Path']} active {/if} weight_{$nav['Weight']}"><a href="{$nav['Path']}">{$nav['Name']}</a></li>
+                        	<li class="{if $page->server['REQUEST_URI'] eq $nav['Path']} active {/if} weight_{$nav['Weight']}">
+                        		<a href="{$nav['Path']}">{$nav['Name']}</a>
+                        		{if isset($nav['Children'])}
+	                        		<ul>
+	                        			{foreach from=$nav key=name item=subnav}
+	                        				<li class="{if $page->server['REQUEST_URI'] eq $subnav['Path']} active {/if} weight_{$subnav['Weight']}"><a href="{$subnav['Path']}">{$name}</a></li>
+	                        			{/foreach}
+	                        		</ul>
+	                        	{/if}
                         {/foreach}
+                        </li>
+                        
+                        
                         <li class="fr action">
                             <a href="documentation/index.html" class="button button-orange help" rel="#overlay"><span class="help"></span>{t}Help{/t}</a>
                         </li>
