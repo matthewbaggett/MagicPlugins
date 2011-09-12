@@ -2,14 +2,13 @@
 class ManageShopController extends ManageBaseCMSController{
 	
 	public function Factory(){
-		return new ManageBlogController();
+		return new self();
 	}
 	
 	public function AllActions($action){
 		$this->CheckLogin();
 
 		parent::AllActions($action);
-		//print_r($this->application->page);die();
 	}
 	
 	

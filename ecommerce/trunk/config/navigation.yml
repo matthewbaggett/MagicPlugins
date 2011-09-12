@@ -1,3 +1,8 @@
 Shop:
   Path: /ManageShop/
   Weight: 90
+  Children:
+    Import product feed:
+      Path: /ManageShop/ImportProductFeed/
+      Weight: 999
+

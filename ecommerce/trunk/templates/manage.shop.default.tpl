@@ -12,7 +12,7 @@
                     <div class="main-content">
                         <header>
                             <h2>
-                                {t}Blog posts{/t}
+                                {t}Shop Management{/t}
                             </h2>
                         </header>
                         <section class="container_8 clearfix">
