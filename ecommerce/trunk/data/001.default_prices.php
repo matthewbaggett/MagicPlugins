@@ -22,7 +22,7 @@ foreach(PartSearcher::Factory()->execute() as $oPart){
 		Price::Factory()
 			->set_part($oPart->get_id())
 			->set_pricetype($oTestPriceType->get_id())
-			->set_amount(rand(5,50))
+			->set_amount(rand(5,50) + (rand(0,100)/100))
 			->save();
 	}
 }
