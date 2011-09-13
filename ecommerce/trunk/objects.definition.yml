@@ -50,3 +50,65 @@ Brand:
     type: text
     length: 255
 
+PartType:
+  id:
+    key: true
+    type: integer
+    length: 10
+  name:
+    type: text
+    length: 255
+
+Part:
+  id:
+    key: true
+    type: integer
+    length: 10
+  name:
+    type: text
+    length: 512
+  brand:
+    foreign: Brand.id
+  type:
+    foreign: PartType.id
+  code:
+    type: text
+    length: 512
+  description:
+    type: text
+    length: -1
+  deleted:
+    type: enum
+    enum:
+      yes
+      no
+
+PriceType:
+  id:
+    key: true
+    type: integer
+    length: 10
+  name:
+    type: text
+    length: 255
+  description:
+    type: text
+    length: 1024
+  handle:
+    type: text
+    length: 255
+
+Price:
+  id:
+    key: true
+    type: integer
+    length: 10
+  part:
+    foreign: Part.id
+  pricetype:
+    foreign: PriceType.id
+  amount:
+    type: money
+    
+  
+

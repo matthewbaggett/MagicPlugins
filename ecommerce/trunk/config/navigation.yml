@@ -2,6 +2,12 @@ Shop:
   Path: /ManageShop/
   Weight: 90
   Children:
+    Products/Parts:
+      Path: /ManageShop/Parts/
+      Weight: 1
+    Products/Parts sets:
+      Path: /ManageShop/Sets/
+      Weight: 2
     Import product feed:
       Path: /ManageShop/ImportProductFeed/
       Weight: 999

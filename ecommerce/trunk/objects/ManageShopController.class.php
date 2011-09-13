@@ -20,6 +20,27 @@ class ManageShopController extends ManageBaseCMSController{
 		$this->application->page->template = "../../ecommerce/templates/manage.shop.default.tpl";
 	}
 	
+	public function PartsAction(){
+		// Pagination
+		$per_page = 100;
+		if(isset($_GET['page'])){
+			$page = $_GET['page'];
+		}else{
+			$page = 1;
+		}
+		$offset = $per_page * $page;
+		
+		$this->application->page->object_name = "Part";
+		$this->application->page->object_schema = Part::Schema();
+		
+		$this->application->page->data = MagicQuery::Factory("SELECT",Part::TABLE)
+				->addColumn("*")
+				->setLimit($offset,$per_page)
+				->execute();
+		//echo "<pre>"; print_r($this->application->page->object_schema);exit;
+		$this->application->page->template = "../../ecommerce/templates/manage.shop.viewdata.part.tpl";
+	}
+	
 	public function ImportProductFeedAction(){
 		if(count($_FILES) > 0){
 			echo "<pre>";
