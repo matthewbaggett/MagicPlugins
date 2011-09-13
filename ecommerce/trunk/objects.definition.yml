@@ -77,11 +77,26 @@ Part:
   description:
     type: text
     length: -1
+  enabled:
+    type: enum
+    enum:
+      yes
+      no
+    default: yes
   deleted:
     type: enum
     enum:
       yes
       no
+    default: no
+      
+PartMedia:
+  id:
+    key: true
+    type: integer
+    length: 10
+  part:
+    foreign: Part.id
 
 PriceType:
   id:
