@@ -69,10 +69,10 @@ class ManageShopController extends ManageBaseCMSController{
 				}
 				
 				//Find the part..
-				if(PartSearcher::Factory()->search_by_code($part['Manufacturer Number'])->search_by_brand($oBrand->get_id())->count() > 0){
-					$oPart = PartSearcher::Factory()->search_by_code($part['Manufacturer Number'])->search_by_brand($oBrand->get_id())->execute_one();
+				if(PartSearcher::Factory()->search_by_code($part['Product Number'])->search_by_brand($oBrand->get_id())->count() > 0){
+					$oPart = PartSearcher::Factory()->search_by_code($part['Product Number'])->search_by_brand($oBrand->get_id())->execute_one();
 				}else{
-					$oPart = Part::Factory()->set_code($part['Manufacturer Number'])->save();
+					$oPart = Part::Factory()->set_code($part['Product Number'])->save();
 				}
 				
 				//Find the type..
