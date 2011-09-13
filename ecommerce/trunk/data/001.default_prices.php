@@ -15,6 +15,9 @@ if(!PriceTypeSearcher::Factory()->search_by_handle("TEST")->count() > 0){
 		->save();
 }
 
+/*
+ * Add a load of test price data, between £5.00 and £50.99
+ */
 $oTestPriceType = PriceTypeSearcher::Factory()->search_by_handle("TEST")->execute_one();
 foreach(PartSearcher::Factory()->execute() as $oPart){
 	$oPart = Part::Cast($oPart);
