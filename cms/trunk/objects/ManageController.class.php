@@ -172,7 +172,8 @@ class ManageController extends ManageBaseCMSController{
 				->setLimit($offset,$per_page)
 				->execute();
 		$app = Application::GetInstance();
-				
+
+		// Check for a custom template
 		$custom_template = strtolower("manage.viewdata.{$this->application->page->object_name}.tpl");
 		$check_path = dirname(__FILE__)."/../templates/";
 		if(file_exists($check_path . $custom_template)){
@@ -197,5 +198,12 @@ class ManageController extends ManageBaseCMSController{
 		$this->application->page->object_name = $object_name;
 		$this->application->page->object = $oObject;
 		$this->application->page->columns = $columns;
+		
+		// Check for a custom template
+		$custom_template = strtolower("manage.editdata.{$this->application->page->object_name}.tpl");
+		$check_path = dirname(__FILE__)."/../templates/";
+		if(file_exists($check_path . $custom_template)){
+			$this->application->page->template = $custom_template;
+		}
 	}
 }
