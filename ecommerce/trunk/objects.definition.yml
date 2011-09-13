@@ -82,13 +82,13 @@ Part:
     enum:
       yes
       no
-    default: yes
+    default: "yes"
   deleted:
     type: enum
     enum:
       yes
       no
-    default: no
+    default: "no"
       
 PartMedia:
   id:
