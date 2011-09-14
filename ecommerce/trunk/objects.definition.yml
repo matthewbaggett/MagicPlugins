@@ -21,8 +21,27 @@ Customer:
     type: text;
     length: 8;
   country:
-    type: Country.id
+    foreign: Country.id
+    
+Basket:
+  id:
+    key: true
+    type: integer
+    length: 10
+  customer:
+    foreign: Customer.id
+    default: -1
 
+BasketLine
+  id:
+    key: true
+    type: integer
+    length: 10
+  basket:
+    foreign: Basket.id
+  part:
+    foreign: Part.id
+  
 Country:
   id:
     key: true
@@ -124,6 +143,3 @@ Price:
     foreign: PriceType.id
   amount:
     type: money
-    
-  
-
