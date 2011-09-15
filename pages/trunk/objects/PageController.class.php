@@ -7,23 +7,23 @@ class PageController extends PageBaseController {
 	
 	public function ViewAction(){
         $this->application->page_setup();
-        $this->page = PageSearcher::Factory()
+        $this->application->page->oPage = PageSearcher::Factory()
         		->search_by_path($_REQUEST['parameter'])
         		->search_by_published("yes")
         		->search_by_deleted("no")
         		->sort("version",'DESC')
         		->execute_one();
-        if(!$this->page){
+        if(!$this->application->page->oPage){
         	throw new exception("No page exists for this path :(");
         }
         $navigation = PageSearcher::Factory()
         		->search_by_parent_id(0)
         		->execute();
-        $this->application->page->content = $this->page->get_content();
-        $this->application->page->title = $this->page->get_title();
+        $this->application->page->content = $this->application->page->oPage->get_content();
+        $this->application->page->title = $this->application->page->oPage->get_title();
         $this->application->page->navigation = $navigation;
         $this->application->page->navigation_structure = $this->get_navigation_structure($navigation);
-       	
+       	$this->application->page->template = $this->application->page->oPage->get_template()!='default'?"page.view.{$this->application->page->oPage->get_template()}.tpl":'page.view.tpl';
     }
 
     /**

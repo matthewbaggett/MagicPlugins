@@ -22,6 +22,11 @@ Page:
   version:
     type: integer
     length: 10
+  template:
+    type: enum
+    enum: 
+      default
+    default: "default"
   published:
     type: enum
     enum:
