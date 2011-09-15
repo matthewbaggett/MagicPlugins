@@ -40,7 +40,7 @@
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="content">{t}Content{/t}</label></td>
-	                        					<td><textarea name="content" id="content">{$page->oPage->get_content()|transform_xslt:"editor.xsl":"plugins/pages/xsl"}</textarea></td>
+	                        					<td>{$page->oPage->get_content()|transform_xslt:"editor.xsl":"plugins/pages/xsl"}</td>
 	                        				</tr>
 	                        				<tr>
 	                        					<td><label for="date_written">{t}Date saved{/t}</label></td>
