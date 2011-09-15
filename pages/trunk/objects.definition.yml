@@ -4,19 +4,11 @@ Page:
     type: integer
     length: 10
   parent_id:
-    foreign: Page.id
+    type: integer
+    length: 10
   path:
     type: text
     length: 255
-
-
-PageVersion:
-  id:
-    key: true
-    type: integer
-    length: 10
-  page:
-    foreign: Page.id
   title:
     type: text
     length: 512
@@ -27,3 +19,19 @@ PageVersion:
     foreign: User.id
   timestamp:
     type: timestamp
+  version:
+    type: integer
+    length: 10
+  published:
+    type: enum
+    enum:
+      yes
+      no
+    default: "no"
+  deleted:
+    type: enum
+    enum:
+      yes
+      no
+    default: "no"
+
