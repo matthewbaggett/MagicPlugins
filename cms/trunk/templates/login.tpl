@@ -56,8 +56,11 @@ $(document).ready(function(){
 </script> 
 
 
+
+
 </head>
 <body class="login">
+	<pre>{print_r($page)}</pre>
     <div class="login-box main-content">
       <header>
           <ul class="action-buttons clearfix fr">
@@ -80,6 +83,8 @@ $(document).ready(function(){
 					<label class="choice" for="remember">Keep me logged-in for two weeks</label>
 				</span>
 			</p>
+			<div id="google_federated"></div>
+
 		</form>
     	</section>
     </div>

@@ -25,8 +25,23 @@ $(document).ready(function(){
     	message: '<div><em/></div>' // em element is the arrow
     }).attr('novalidate', 'novalidate');
 });
-</script> 
-</head>
+</script>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/googleapis/0.0.4/googleapis.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/jsapi"></script>
+<script type="text/javascript">
+
+var page = {json_encode($page)};
+
+console.log(page);
+
+{literal}
+  google.load("identitytoolkit", "1.0", {packages: ["ac"]});
+{/literal}
+</script>
+<script type="text/javascript" src="{$page->site->sys_root}/plugins/cms/resources/js/google-federated.js"></script></head>
 
 <body class="login">
 	<div class="login-box main-content">
@@ -50,6 +65,7 @@ $(document).ready(function(){
 						<label class="choice" for="remember">{t}Keep me logged-in for two weeks{/t}</label>
 					</span>
 				</p>
+				<p>Sign in using Google <div id="google_federated"></div></p>
 			</form>
 		</section>
 	</div>
