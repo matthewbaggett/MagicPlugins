@@ -4,9 +4,12 @@
  * authenticating the user.
  */
 
-require_once('autoload.php');
 
 class gitCallbackHandler {
+  const OKAY = 1;
+  const RESPONSE = 0;
+  const ERR = -1;
+  
   private $email;
   private $purpose;
   private $url;
@@ -24,7 +27,9 @@ class gitCallbackHandler {
     $assertion = $apiClient->verify($this->url, $this->idpResponse);
     if (empty($assertion)) {
       header('Content-type: text/html');
-      echo "<html>\n<head>\n</head>\n<body onload='window.close();'>\n</body>\n</html>";
+      
+      MagicLogger::log("gitCallbackHandler: OK");
+      return gitCallbackHandler::OKAY;
     } else {
       $request = new gitCallbackRequest($this->email, $this->purpose, $assertion);
       $response = new gitCallbackResponse();
@@ -34,9 +39,13 @@ class gitCallbackHandler {
       $error = $response->getError();
       if (!empty($error)) {
         gitUtil::sendError($error);
+        MagicLogger::log("gitCallbackHandler: error: {$error}");
+        return gitCallbackHandler::ERR;
       } else {
         header(sprintf('Content-type: %s', $response->getContentType()));
+        MagicLogger::log("gitCallbackHandler: response: {$response->getOutput()}");
         echo $response->getOutput();
+        return gitCallbackHandler::RESPONSE;
       }
     }
   }

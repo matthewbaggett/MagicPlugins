@@ -1,0 +1,11 @@
+OpenID:
+  id:
+    key: true
+    type: integer
+    length: 10
+  identity:
+    type: text
+    length: 1024
+  sig:
+    type: text
+    length: 256
