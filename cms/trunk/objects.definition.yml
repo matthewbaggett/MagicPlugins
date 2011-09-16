@@ -1,8 +1,10 @@
-OpenID:
+OpenId:
   id:
     key: true
     type: integer
     length: 10
+  user:
+    foreign: User.id
   identity:
     type: text
     length: 1024

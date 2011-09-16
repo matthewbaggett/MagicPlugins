@@ -40,11 +40,34 @@ class GoogleController extends MagicBaseController{
 	
 	private function process_login(){
 		
-		$email = $_REQUEST['openid_ext1_value_attr0'];
+		$email 			= $_REQUEST['openid_ext1_value_attr0'];
+		$firstname 		= $_REQUEST['openid_ext1_value_attr3'];
+		$surname 		= $_REQUEST['openid_ext1_value_attr6'];
 		if($this->does_user_email_exist($email)){
 			$oUser = UserSearcher::Factory()->search_by_email($email)->execute_one();
+			if($oUser->has_child_open_ids()){
+				$oOpenId = $oUser->get_child_open_id();
+			}else{
+				$oOpenId = OpenId::Factory()
+					->set_identity($_REQUEST['openid_identity'])
+					->set_sig($_REQUEST['openid_sig'])
+					->set_user($oUser->get_id())
+					->save();
+			}
 		}else{
-			//$oUser-
+			$oUser = User::Factory()
+				->set_active(User::ACTIVE_ACTIVE)
+				->set_email($email)
+				->set_firstname($firstname)
+				->set_surname($surname)
+				->set_date_of_registration(time())
+				->save();
+			$oOpenId = OpenId::Factory()
+				->set_identity($_REQUEST['openid_identity'])
+				->set_sig($_REQUEST['openid_sig'])
+				->set_user($oUser->get_id())
+				->save();
+				
 		}
 	}
 	public function Factory(){
