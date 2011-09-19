@@ -174,7 +174,7 @@ class ManageController extends ManageBaseCMSController{
 		$app = Application::GetInstance();
 
 		// Check for a custom template
-		$custom_template = strtolower("manage.viewdata.{$this->application->page->object_name}.tpl");
+		$custom_template = strtolower("manage.viewdata.".strtolower($this->application->page->object_name).".tpl");
 		$check_path = dirname(__FILE__)."/../templates/";
 		if(file_exists($check_path . $custom_template)){
 			$this->application->page->template = $custom_template;
