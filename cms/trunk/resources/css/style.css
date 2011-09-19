@@ -650,3 +650,10 @@ form.configure.properties div.connector_type .heading span{
     padding-left: 4px;
     padding-right: 4px;
 }
+
+body.manage_viewdata_part table th.column_price{
+	width: 40px;
+}
+body.manage_viewdata_part table td.column_price{
+	text-align: right;
+}

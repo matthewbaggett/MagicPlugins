@@ -26,7 +26,7 @@
                         			<table class="datatable">
                         				<tr>
                         					{foreach from=end($page->data) key=column_id item=column_value}
-                        						<th class="cell_{$i}_{$column_id} column_{$column_id}">{$column_id|translate}</td>
+                        						<th class="cell_{$column_id} column_{$column_id}">{$column_id|translate}</td>
                         					{/foreach}
                         				</tr>
                         				{foreach from=$page->data key=i item=row}
