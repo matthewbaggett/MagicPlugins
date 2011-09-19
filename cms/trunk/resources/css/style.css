@@ -579,3 +579,74 @@ body>footer
 	background-image: url(../images/overlay/transparent.png);
 	color: #fff;
 }
+
+form.configure{
+	width: 855px;
+}
+form.configure table{
+	width: 855px;
+}
+form.configure table tr.formrow{}
+form.configure table tr.formrow td{
+	margin-bottom: 3px;
+}
+form.configure table tr.formrow.type_description{}
+form.configure table tr.formrow.type_description textarea{
+	width: 800px;
+	height: 200px;
+}
+form.configure div.formrow{
+	padding-bottom: 3px;
+	margin-bottom: 3px;
+	display: block;
+    float: left;
+    clear: left;
+}
+form.configure div.formrow label{
+	display: block;
+    float: left;
+    width: 78px;
+    height: 19px;
+    padding-top: 7px;
+}
+form.configure div.formrow input{
+	display: block;
+    float: left;
+    width: 110px;
+    height: 15px;
+}
+form.configure.properties div.column{
+	float: left; display: block;
+	width: 425px;
+}
+form.configure.properties table{
+	width: 420px;	
+}
+form.configure.properties table tr.formrow{}
+form.configure.properties table tr.formrow.type_description{}
+form.configure.properties table tr.formrow.type_description textarea{
+	width: 400px;
+}
+
+form.configure.properties div.connector_type{
+	border: 1px solid #CCCCCC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 6px;
+	padding-bottom: 0px;
+	margin-bottom: 10px;
+	float: left; display: block;
+}
+form.configure.properties div.connector_type .heading{
+    margin-top: -14px;
+}
+form.configure.properties div.connector_type .heading span{
+	background-color: white;
+	font-weight: bold;
+	margin-left: -4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}

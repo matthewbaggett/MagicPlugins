@@ -190,20 +190,37 @@ class ManageController extends ManageBaseCMSController{
 		if($oObject === FALSE){
 			throw new MagicException("Cannot load {$object_name} with ID {$id}... Doesn't exist!");
 		}
-		$columns = explode("|",trim($object_name::MAGIC_OBJECT_CONTAINS));
-		
-		// Push things into the template.
-		
-		$this->application->page->id = $id;
-		$this->application->page->object_name = $object_name;
-		$this->application->page->object = $oObject;
-		$this->application->page->columns = $columns;
-		
-		// Check for a custom template
-		$custom_template = strtolower("manage.editdata.{$this->application->page->object_name}.tpl");
-		$check_path = dirname(__FILE__)."/../templates/";
-		if(file_exists($check_path . $custom_template)){
-			$this->application->page->template = $custom_template;
+		if($this->is_post()){
+			foreach($_POST as $column => $value){
+				if(strpos($column,"object_") !== FALSE){
+					$column = str_replace("object_","",$column);
+					$call = "set_{$column}";
+					if(!method_exists($oObject, $call)){
+						throw new MagicException("Cannot set $column, there is no such variable on ".get_class($oObject));
+					}
+					$oObject->$call($value);
+				}
+			}
+			$oObject->save();
+			header("Location: {$_SERVER['HTTP_REFERER']}");
+			exit;
+		}else{
+			
+			$columns = explode("|", trim($object_name::MAGIC_OBJECT_CONTAINS));
+			
+			// Push things into the template.
+			
+			$this->application->page->id = $id;
+			$this->application->page->object_name = $object_name;
+			$this->application->page->object = $oObject;
+			$this->application->page->columns = $columns;
+			
+			// Check for a custom template
+			$custom_template = strtolower("manage.editdata.{$this->application->page->object_name}.tpl");
+			$check_path = dirname(__FILE__)."/../templates/";
+			if(file_exists($check_path . $custom_template)){
+				$this->application->page->template = $custom_template;
+			}
 		}
 	}
 }
