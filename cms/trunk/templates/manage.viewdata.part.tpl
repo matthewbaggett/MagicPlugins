@@ -21,8 +21,8 @@
                         <section class="container_8 clearfix">
                         	<div class="grid_8 clearfix">
                         		<section>
-                        			<a class="button small red" href="/Manage/Objects/list">{t}Back to Objects{/t}</a>
-									<a class="button small green" href="/Manage/ViewSchema/{$page->object_name}">{t}View Schema for{/t} {$page->object_name|translate}</a>
+                        			{include file="elements.viewdata.buttonbox.tpl"}
+
                         			<table class="datatable">
                         				<tr>
                         					{foreach from=end($page->data) key=column_id item=column_value}

@@ -188,7 +188,7 @@ class ManageController extends ManageBaseCMSController{
 		$oObjectSearcher = new $object_searcher_name;
 		$oObject = $oObjectSearcher->search_by_id($id)->execute_one();
 		if($oObject === FALSE){
-			throw new MagicException("Cannot load {$object_name} with ID {$id}... Doesn't exist!");
+			$oObject = new $object_name;
 		}
 		if($this->is_post()){
 			foreach($_POST as $column => $value){
@@ -207,7 +207,11 @@ class ManageController extends ManageBaseCMSController{
 		}else{
 			
 			$columns = explode("|", trim($object_name::MAGIC_OBJECT_CONTAINS));
-			
+			$columns = array_filter($columns, function($var){
+				if($var != 'id'){
+					return $var;
+				}
+			});
 			// Push things into the template.
 			
 			$this->application->page->id = $id;

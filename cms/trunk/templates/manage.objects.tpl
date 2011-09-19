@@ -25,6 +25,7 @@
                         					<th>{t}Instances{/t}</th>
                         					<th>{t}Changes{/t}</th>
                         					<th>{t}Changes / Instance{/t}</th>
+                        					<th>{t}New{/t}</th>
                         					<th>{t}Edit Data{/t}</th>
                         					<th>{t}Edit Schema{/t}</th>
                         				</tr>
@@ -34,6 +35,7 @@
                         						<td>{$object['instances']} {$object['instances_abv']}</td>
                         						<td>{$object['changes']}</td>
                         						<td>{$object['changes_avg']}</td>
+                        						<td><a href="/Manage/EditData/{$object['name']}">{t}New{/t}</a>
                         						<td><a href="/Manage/ViewData/{$object['name']}">{t}Data{/t}</a></td>
                         						<td><a href="/Manage/ViewSchema/{$object['name']}">{t}Schema{/t}</a></td>
                         					</tr>
