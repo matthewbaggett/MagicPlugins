@@ -580,6 +580,26 @@ body>footer
 	color: #fff;
 }
 
+table.editdata{
+	width: 850px;
+}
+table.editdata .tableformrow{}
+table.editdata .tableformrow td{
+	padding-bottom: 3px;
+}
+table.editdata .tableformrow > td.label{
+	width: 86px;
+}
+table.editdata .tableformrow > td.input{
+	
+}
+table.editdata .tableformrow > td.input input{
+	width: 200px;
+}
+table.editdata .tableformrow > td.input select,
+table.editdata .tableformrow > td.input .ui-select{
+	 width: 212px;
+}
 form.configure{
 	width: 855px;
 }

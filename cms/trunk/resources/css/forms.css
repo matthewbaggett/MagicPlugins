@@ -1268,6 +1268,7 @@ input.large, button.large {
     z-index: 0;
     padding: 4px 22px 4px 6px;
     display: block;
+    min-height: 16px;
 }
 .ui-select .ui-select-button {
     display: block;

@@ -1,9 +1,9 @@
 {include file="elements.editdata.top.tpl"}
 	<table class="editdata {strtolower(str_replace(" ","_",$page->object_name))}">
 		{foreach from=$page->columns item=column}
-			<tr class="formrow {$column}">
-				<td><label for="object_{$column}">{$column}</label></td>
-				<td><input name="object_{$column}" id="object_{$column}" type="text" value="{$page->object->get_named_column($column)}"/></td>
+			<tr class="tableformrow {$column}">
+				<td class="label"><label for="object_{$column}">{$column}</label></td>
+				<td class="input"><input name="object_{$column}" id="object_{$column}" type="text" value="{$page->object->get_named_column($column)}"/></td>
 			</tr>
 		{/foreach}
 		<tr>

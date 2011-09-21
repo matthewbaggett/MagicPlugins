@@ -202,7 +202,11 @@ class ManageController extends ManageBaseCMSController{
 				}
 			}
 			$oObject->save();
-			header("Location: {$_SERVER['HTTP_REFERER']}");
+			echo "<pre>";
+			print_r($_POST);
+			print_r(MagicDatabase::$log);
+			die("stopped");
+			header("Location: /Manage/EditData/".get_class($oObject)."?id={$oObject->get_id()}");
 			exit;
 		}else{
 			
