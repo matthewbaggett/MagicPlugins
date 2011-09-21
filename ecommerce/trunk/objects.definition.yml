@@ -143,3 +143,35 @@ Price:
     foreign: PriceType.id
   amount:
     type: money
+
+Promotion:
+  id:
+    key: true
+    type: integer
+    length: 10
+  type:
+    foreign: PromotionType.id
+  value:
+    type: number
+  code:
+    type: text
+    length: 32
+  date_begin:
+    type: timestamp
+  date_end:
+    type: timestamp
+  deleted:
+    type: enum
+    enum:
+      yes
+      no
+    default: "no"
+
+PromotionType:
+  id:
+    key: true
+    type: integer
+    length: 10
+  name:
+    type: text
+    length: 255
