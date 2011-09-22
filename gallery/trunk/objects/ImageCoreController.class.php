@@ -24,20 +24,20 @@
 
 class ImageCoreController extends ImageBaseController {
 	public function ThumbAction(){
+		Application::$nocache = true;
 		
-		//set time to expire in seconds
+		// set time to expire in seconds
 		$expires = 86400;
 		
-		//get the contents of the buffer into a variable
-		Application::$nocache = true;
-    	$bits = explode("-",str_replace(".jpg", "", $_GET['parameter']),2);
+		// get the contents of the buffer into a variable
+		$bits = explode("-",str_replace(".jpg", "", $_GET['parameter']),2);
     	$dimentions = explode("x",$bits[0],2);
     	$image_id = base_convert($bits[1], 36, 10);
 		$oImage = ImageSearcher::Factory()->search_by_id($image_id)->execute_one();
 		$cache_time = $oImage->get_uploaded();
 		$body = $oImage->scale_to_fit($dimentions[0],$dimentions[1]);
+		
 		// Etag and last modified checking and Generation
-
 		$send_body = true;
 		$etag = '"' . md5($body) . '"';
 		header ("ETag: " . $etag );
@@ -63,10 +63,11 @@ class ImageCoreController extends ImageBaseController {
 		header('Content-Type: image/jpeg');
 
 
-//if we're not cacheing
+		// if we're not cacheing
 
-if($send_body) print $body;
-		
+		if($send_body){ 
+			echo $body;
+		}
 		exit;
 	}
 }

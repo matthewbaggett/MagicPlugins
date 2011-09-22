@@ -25,6 +25,9 @@ Image:
   populated:
     type: int
     length: 1
+  deleted:
+    type: int
+    length: 1
 
 Tag:
   id:
