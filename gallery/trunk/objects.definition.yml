@@ -29,6 +29,38 @@ Image:
     type: int
     length: 1
 
+ImageHash:
+  id:
+    key: true
+    type: integer
+    length: 10
+  image_id:
+    foreign: Image.id
+  sha1:
+    type: text
+    length: 40
+  md5:
+    type: text
+    length: 32
+
+ImageTuple:
+  id:
+    key: true
+    type: integer
+    length: 10
+  image_id:
+    foreign: Image.id
+  x:
+    type: integer
+    length: 10
+  y:
+    type: integer
+    length: 10
+  value:
+    type: text
+    length: 40
+    
+
 Tag:
   id:
     key: true
