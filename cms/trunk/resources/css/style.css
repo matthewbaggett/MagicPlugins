@@ -604,13 +604,13 @@ form.configure{
 	width: 855px;
 }
 form.configure table{
-	width: 855px;
+	width: 855px;dddddddd
 }
 form.configure table tr.formrow{}
-form.configure table tr.formrow td{
+dfgdfform.configure table tr.formrow td{
 	margin-bottom: 3px;
 }
-form.configure table tr.formrow.type_description{}
+fdgdfdfgfdform.configure table tr.formrow.type_description{}
 form.configure table tr.formrow.type_description textarea{
 	width: 800px;
 	height: 200px;
