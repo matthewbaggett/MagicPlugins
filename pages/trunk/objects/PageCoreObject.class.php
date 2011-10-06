@@ -13,4 +13,12 @@ class PageCoreObject extends PageBaseObject implements PageInterface {
 		}		
 		return true;
 	}
+	public function get_child_pages(){
+		$child_pages = PageSearcher::Factory()->search_by_parent_id($this->get_id())->execute();
+		if(count($child_pages) > 0){
+			return $child_pages;
+		}else{
+			return NULL;
+		}
+	}
 }
