@@ -16,16 +16,21 @@ class PageController extends PageBaseController {
         if(!$this->application->page->oPage){
         	throw new exception("No page exists for this path :(");
         }
-        $navigation = PageSearcher::Factory()
-        		->search_by_parent_id(0)
-        		->execute();
+        
+        $this->application->page->navigation = PageController::navigation();
         $this->application->page->content = $this->application->page->oPage->get_content();
         $this->application->page->title = $this->application->page->oPage->get_title();
-        $this->application->page->navigation = $navigation;
+        
         $this->application->page->navigation_structure = $this->get_navigation_structure($navigation, $this->application->page->oPage);
        	$this->application->page->template = $this->application->page->oPage->get_template()!='default'?"page.view.{$this->application->page->oPage->get_template()}.tpl":'page.view.tpl';
     }
 
+    static public function navigation($root){
+    	$navigation = PageSearcher::Factory()
+        		->search_by_parent_id($root)
+        		->execute();
+       	return $navigation;
+    }
     /**
      * Plug through an array of page nodes and churn out a structure
      * @param Array $nodes Array of nodes
